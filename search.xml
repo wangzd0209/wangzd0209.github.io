@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>bomb_lab</title>
+      <link href="/2022/02/06/bomb-lab/"/>
+      <url>/2022/02/06/bomb-lab/</url>
+      
+        <content type="html"><![CDATA[<p>2022-02-06今天完成了bomb lab的任务，预计明天发布解答笔记，以及data lab 的非数部分的笔记。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> lab </category>
+          
+          <category> csapp </category>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> lab </tag>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> csapp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>说明</title>
       <link href="/2022/02/06/%E8%AF%B4%E6%98%8E/"/>
       <url>/2022/02/06/%E8%AF%B4%E6%98%8E/</url>
