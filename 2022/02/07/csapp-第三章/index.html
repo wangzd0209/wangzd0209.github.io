@@ -22,20 +22,21 @@
     var CONFIG = {"hostname":"wangzd0209.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="全局说明这是我的关于技术分享的博客，我会在这里进行全局说明，主要是说明我之后在什么时间会发布关于什么的博客。">
+  <meta name="description" content="第三章笔记3.2 程序编码 程序编码流程：  对于一个.c文件，首先会将通过预编译将所有#include插入，并将#define指明宏。此次会通过编译生成汇编代码，汇编器会将汇编变为二进制的目标文件，这是还没有全局变量的值。最后连接器回去插入全局变量的值，并将一些文件相组合从而变成一个可执行文件，再linux可以通过.&#x2F; 执行。 真正难懂的部分主要是再连接器，csapp这本书我认为讲的脉络不是很清">
 <meta property="og:type" content="article">
-<meta property="og:title" content="说明">
-<meta property="og:url" content="http://wangzd0209.com/2022/02/06/%E8%AF%B4%E6%98%8E/index.html">
+<meta property="og:title" content="csapp--第三章">
+<meta property="og:url" content="http://wangzd0209.com/2022/02/07/csapp-%E7%AC%AC%E4%B8%89%E7%AB%A0/index.html">
 <meta property="og:site_name" content="东东园">
-<meta property="og:description" content="全局说明这是我的关于技术分享的博客，我会在这里进行全局说明，主要是说明我之后在什么时间会发布关于什么的博客。">
+<meta property="og:description" content="第三章笔记3.2 程序编码 程序编码流程：  对于一个.c文件，首先会将通过预编译将所有#include插入，并将#define指明宏。此次会通过编译生成汇编代码，汇编器会将汇编变为二进制的目标文件，这是还没有全局变量的值。最后连接器回去插入全局变量的值，并将一些文件相组合从而变成一个可执行文件，再linux可以通过.&#x2F; 执行。 真正难懂的部分主要是再连接器，csapp这本书我认为讲的脉络不是很清">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-06T02:31:03.000Z">
-<meta property="article:modified_time" content="2022-02-06T13:38:55.989Z">
+<meta property="article:published_time" content="2022-02-07T06:15:42.000Z">
+<meta property="article:modified_time" content="2022-02-07T08:12:27.758Z">
 <meta property="article:author" content="Wangzd">
-<meta property="article:tag" content="全局说明">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="csapp">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://wangzd0209.com/2022/02/06/%E8%AF%B4%E6%98%8E/">
+<link rel="canonical" href="http://wangzd0209.com/2022/02/07/csapp-%E7%AC%AC%E4%B8%89%E7%AB%A0/">
 
 
 <script id="page-configurations">
@@ -48,7 +49,7 @@
   };
 </script>
 
-  <title>说明 | 东东园</title>
+  <title>csapp--第三章 | 东东园</title>
   
 
 
@@ -203,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wangzd0209.com/2022/02/06/%E8%AF%B4%E6%98%8E/">
+    <link itemprop="mainEntityOfPage" href="http://wangzd0209.com/2022/02/07/csapp-%E7%AC%AC%E4%B8%89%E7%AB%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -216,7 +217,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          说明
+          csapp--第三章
         </h1>
 
         <div class="post-meta">
@@ -227,7 +228,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-02-06 10:31:03 / 修改时间：21:38:55" itemprop="dateCreated datePublished" datetime="2022-02-06T10:31:03+08:00">2022-02-06</time>
+              <time title="创建时间：2022-02-07 14:15:42 / 修改时间：16:12:27" itemprop="dateCreated datePublished" datetime="2022-02-07T14:15:42+08:00">2022-02-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,7 +236,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BB%8B%E7%BB%8D/" itemprop="url" rel="index"><span itemprop="name">介绍</span></a>
+                  <a href="/categories/csapp/" itemprop="url" rel="index"><span itemprop="name">csapp</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/csapp/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
                 </span>
             </span>
 
@@ -250,11 +255,89 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="全局说明"><a href="#全局说明" class="headerlink" title="全局说明"></a>全局说明</h1><p>这是我的关于技术分享的博客，我会在这里进行全局说明，主要是说明我之后在什么时间会发布关于什么的博客。</p>
-<span id="more"></span>
-
-<h2 id="第一部分-–-csapp"><a href="#第一部分-–-csapp" class="headerlink" title="第一部分 – csapp"></a>第一部分 – csapp</h2><p>我目前正在阅读csapp这本书，同时在写lab，会在2022-02-09日之前完成第二章和第三章所有笔记和lab的发布, 对于lab可能并不能完成，我会在明天整理好所有的笔记和data lab 以及 bomb lab， 不得不说bomb真的令人头痛，尤其是phase_6对于链表部分的分析。</p>
-
+        <h1 id="第三章笔记"><a href="#第三章笔记" class="headerlink" title="第三章笔记"></a>第三章笔记</h1><h2 id="3-2-程序编码"><a href="#3-2-程序编码" class="headerlink" title="3.2 程序编码"></a>3.2 程序编码</h2><ol>
+<li>程序编码流程：</li>
+</ol>
+<p>对于一个.c文件，首先会将通过预编译将所有#include插入，并将#define指明宏。此次会通过编译生成汇编代码，汇编器会将汇编变为二进制的目标文件，这是还没有全局变量的值。最后连接器回去插入全局变量的值，并将一些文件相组合从而变成一个可执行文件，再linux可以通过<code>./ </code>执行。</p>
+<p>真正难懂的部分主要是再连接器，csapp这本书我认为讲的脉络不是很清晰，或是我还没有理解到位，反正我第一遍只能理解大意，并不能梳理一个清晰的脉络。</p>
+<ol start="2">
+<li><p>关于机器代码级的两个重要抽象，一个是虚拟内存，另一个就是指令集框架。<br>所谓哦指令集框架可以理解为一个API，对于特定的处理器会根据Api进行指令的执行。</p>
+</li>
+<li><p>对于机器代码，我们能获取一些被隐蔽的的处理器状态，例如pc程序技术器，用于指向下一条执行指令再内存中的地址。三种寄存器，16个主要使用的，4个条件吗，以及一组向量用于存放浮点数。</p>
+</li>
+<li><p>对于内存而言，无论什么都是多个字节的二进制代码，因此对于不同类型的数据，是在编译器将.c文件转化成汇编时，通过对于不同类型的不同指令而实现的，同时对于一条汇编代码的功能是十分简单的，只有加，减，位移，以及获取内存值等，通过指令得并行从而完成.c文件得操作。</p>
+</li>
+</ol>
+<h2 id="3-3-数据格式"><a href="#3-3-数据格式" class="headerlink" title="3.3 数据格式"></a>3.3 数据格式</h2><table>
+<thead>
+<tr>
+<th>C声明</th>
+<th>Intel数据类型</th>
+<th>汇编代码后缀</th>
+<th>大小（字节）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>char</td>
+<td>字节</td>
+<td>b（byte）</td>
+<td>1</td>
+</tr>
+<tr>
+<td>short</td>
+<td>字</td>
+<td>w（word）</td>
+<td>2</td>
+</tr>
+<tr>
+<td>int</td>
+<td>双子</td>
+<td>l（long word）</td>
+<td>4</td>
+</tr>
+<tr>
+<td>long</td>
+<td>四字</td>
+<td>q （quote）好像是</td>
+<td>8</td>
+</tr>
+</tbody></table>
+<h2 id="3-4-访问信息"><a href="#3-4-访问信息" class="headerlink" title="3.4 访问信息"></a>3.4 访问信息</h2><p>这一节主要介绍得是寄存器以及相关指令的意思，必须仔细看，同时指令最好能记住，或是搞张表记录，方便看后续代码时查询。同时寄存器是很重要的一点。</p>
+<h2 id="3-5-算数和逻辑操作"><a href="#3-5-算数和逻辑操作" class="headerlink" title="3.5 算数和逻辑操作"></a>3.5 算数和逻辑操作</h2><ol>
+<li><p>leaq指令是十分难理解的因为看似是一个引用内存的操作，但是其实并没有，我是这样认为的对于下面的指令</p>
+<p>leap （%rdi），%rdx   &#x2F;&#x2F;x in %rdi</p>
+<p>此时%rdx保存正是x， 但是这个x并不只是一个$数，同时也是一个地址数。</p>
+</li>
+<li><p>对于一个变量，并不总是让一个新的寄存器记录值。</p>
+</li>
+<li><p>这一节记录的是算数方法，自己看。</p>
+</li>
+</ol>
+<h2 id="3-6-控制"><a href="#3-6-控制" class="headerlink" title="3.6 控制"></a>3.6 控制</h2><ol>
+<li>条件码 通过对最近一次操作的判断对四个条件码寄存器进行赋值1或是0，从而通过四个寄存器可以判断所有的逻辑条件。</li>
+<li>对于代码跳转的两种条件转移，一种是我们一般使用的控制条件转移，就是先进行判断在进行计算，另外一种是数据条件控制，就是先进行数据的计算再进行判断赋值。对于为什么第二种多计算了，但是一部分情况下依旧选取的原因是处理器内部会进行预测分支，因为指令是并行的等待控制的时间并不能使指令集的流水线填满，因此时钟周期就会增减，但是也并不是所有舒勇数据条件转移都快只有进行简单运算时才会快。同时也要考虑数据计算是否可能会error。</li>
+<li>do，while和for的基本实现思路是相近的，对于switch需要理解，switch的实现是通过一个固定的跳转表，这个跳转表只是根据索引将地址存进。理解后对于理解数据和哈希有一定的启发。</li>
+</ol>
+<h2 id="3-7-过程-十分重要"><a href="#3-7-过程-十分重要" class="headerlink" title="3.7 过程   十分重要"></a>3.7 过程   <em>十分重要</em></h2><ol>
+<li>对于过程，主要是三个，<br>传递控制，就是下一行执行的指令，主要是pc程序计数器。<br>传递数据，参数的传递，被保存的寄存器等，<br>分配和释放内存。</li>
+<li>栈，参考java执行的栈，就是会将上一个函数的信息保存，再将当前函数的一些信息保存，等到当前函数执行完返回上一个函数，并将当前函数产生的内存释放，总体而言就是通过栈的就够优化内存，建议完成bomb-lab从而更好地理解。</li>
+<li>过程最多传6个参数放到对应的寄存器上，更多的参数会放到内存中</li>
+<li>转移控制，call指令和ret指令，call指令会将当前指令的下一条指令弹入栈，PC指向调用函数的第一条指令的地址。<br>ret指令会将弹出上面填入的指令同时会将PC指向指令值。</li>
+<li>局部存储：对于寄存器不足以及一个局部变量使用“&amp;”抑或是数组或是结构。</li>
+<li>被调用保存寄存器和调用者保存寄存器可以保存数据完成递归和函数调用。</li>
+</ol>
+<h2 id="3-8-数组和结构"><a href="#3-8-数组和结构" class="headerlink" title="3.8 数组和结构"></a>3.8 数组和结构</h2><p>数组其实就是对一个地址的偏移量，结构就是对于数组等结构的组合。</p>
+<h2 id="3-9-联合和数据对齐"><a href="#3-9-联合和数据对齐" class="headerlink" title="3.9 联合和数据对齐"></a>3.9 联合和数据对齐</h2><p>参考c语言union</p>
+<ol>
+<li>对于数据对齐，最主要的对于结构struct而言，尽量会以8个字节进行对其，因此会产生一定的空字节，这是因为处理器是以8字节或是16字节存取的。</li>
+</ol>
+<h2 id="3-10-内存越界和缓存区溢出"><a href="#3-10-内存越界和缓存区溢出" class="headerlink" title="3.10  内存越界和缓存区溢出"></a>3.10  内存越界和缓存区溢出</h2><p>对于一些不确保为字符串等分配了足够空间的函数来说。过长的字符串会修改弹入pc值，从而导致跳转会非正常的函数，对于一些入侵者可以同过在特定字符串跳转到特定函数从而实现入侵。而防御方法最主要的几个如下：</p>
+<ol>
+<li>通过在程序开始时，通过对栈发配一个特定的空间，从而使得每次栈的地址不相同。</li>
+<li>金丝雀通过生成特定代码，输入完成后比对代码。</li>
+<li>类似linux中，对于内存中特定区域只能读写可执行。</li>
+</ol>
+<h2 id="3-11-浮点数代码"><a href="#3-11-浮点数代码" class="headerlink" title="3.11 浮点数代码"></a>3.11 浮点数代码</h2>
     </div>
 	
 	
@@ -308,7 +391,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wangzd0209.com/2022/02/06/%E8%AF%B4%E6%98%8E/" title="说明">http://wangzd0209.com/2022/02/06/说明/</a>
+    <a href="http://wangzd0209.com/2022/02/07/csapp-%E7%AC%AC%E4%B8%89%E7%AB%A0/" title="csapp--第三章">http://wangzd0209.com/2022/02/07/csapp-第三章/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -319,7 +402,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%85%A8%E5%B1%80%E8%AF%B4%E6%98%8E/" rel="tag"># 全局说明</a>
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+              <a href="/tags/csapp/" rel="tag"># csapp</a>
           </div>
 
         
@@ -327,11 +411,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/02/06/bomb-lab/" rel="next" title="bomb_lab">
-      bomb_lab <i class="fa fa-chevron-right"></i>
+    <a href="/2022/02/06/bomb-lab/" rel="prev" title="bomb_lab">
+      <i class="fa fa-chevron-left"></i> bomb_lab
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -390,7 +474,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">全局说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E9%83%A8%E5%88%86-%E2%80%93-csapp"><span class="nav-number">1.1.</span> <span class="nav-text">第一部分 – csapp</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">第三章笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%A0%81"><span class="nav-number">1.1.</span> <span class="nav-text">3.2 程序编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">3.3 数据格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-%E8%AE%BF%E9%97%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">1.3.</span> <span class="nav-text">3.4 访问信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-%E7%AE%97%E6%95%B0%E5%92%8C%E9%80%BB%E8%BE%91%E6%93%8D%E4%BD%9C"><span class="nav-number">1.4.</span> <span class="nav-text">3.5 算数和逻辑操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-%E6%8E%A7%E5%88%B6"><span class="nav-number">1.5.</span> <span class="nav-text">3.6 控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-%E8%BF%87%E7%A8%8B-%E5%8D%81%E5%88%86%E9%87%8D%E8%A6%81"><span class="nav-number">1.6.</span> <span class="nav-text">3.7 过程   十分重要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8-%E6%95%B0%E7%BB%84%E5%92%8C%E7%BB%93%E6%9E%84"><span class="nav-number">1.7.</span> <span class="nav-text">3.8 数组和结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-9-%E8%81%94%E5%90%88%E5%92%8C%E6%95%B0%E6%8D%AE%E5%AF%B9%E9%BD%90"><span class="nav-number">1.8.</span> <span class="nav-text">3.9 联合和数据对齐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-10-%E5%86%85%E5%AD%98%E8%B6%8A%E7%95%8C%E5%92%8C%E7%BC%93%E5%AD%98%E5%8C%BA%E6%BA%A2%E5%87%BA"><span class="nav-number">1.9.</span> <span class="nav-text">3.10  内存越界和缓存区溢出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-11-%E6%B5%AE%E7%82%B9%E6%95%B0%E4%BB%A3%E7%A0%81"><span class="nav-number">1.10.</span> <span class="nav-text">3.11 浮点数代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
