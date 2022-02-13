@@ -32,21 +32,21 @@
     var CONFIG = {"hostname":"wangzd0209.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="第六章csapp第六章缓存笔记">
+  <meta name="description" content="第七章csapp第七章连接器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="csapp-缓存">
-<meta property="og:url" content="http://wangzd0209.com/2022/02/13/csapp-%E7%AC%AC%E5%85%AD%E7%AB%A0/index.html">
+<meta property="og:title" content="csapp-链接器">
+<meta property="og:url" content="http://wangzd0209.com/2022/02/13/csapp-%E9%93%BE%E6%8E%A5%E5%99%A8/index.html">
 <meta property="og:site_name" content="东东园">
-<meta property="og:description" content="第六章csapp第六章缓存笔记">
+<meta property="og:description" content="第七章csapp第七章连接器">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-13T05:57:10.000Z">
-<meta property="article:modified_time" content="2022-02-13T15:13:39.279Z">
+<meta property="article:published_time" content="2022-02-13T15:11:42.000Z">
+<meta property="article:modified_time" content="2022-02-13T15:12:47.815Z">
 <meta property="article:author" content="Wangzd">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="csapp">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://wangzd0209.com/2022/02/13/csapp-%E7%AC%AC%E5%85%AD%E7%AB%A0/">
+<link rel="canonical" href="http://wangzd0209.com/2022/02/13/csapp-%E9%93%BE%E6%8E%A5%E5%99%A8/">
 
 
 <script id="page-configurations">
@@ -59,7 +59,7 @@
   };
 </script>
 
-  <title>csapp-缓存 | 东东园</title>
+  <title>csapp-链接器 | 东东园</title>
   
 
 
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wangzd0209.com/2022/02/13/csapp-%E7%AC%AC%E5%85%AD%E7%AB%A0/">
+    <link itemprop="mainEntityOfPage" href="http://wangzd0209.com/2022/02/13/csapp-%E9%93%BE%E6%8E%A5%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -226,7 +226,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          csapp-缓存
+          csapp-链接器
         </h1>
 
         <div class="post-meta">
@@ -237,7 +237,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-02-13 13:57:10 / 修改时间：23:13:39" itemprop="dateCreated datePublished" datetime="2022-02-13T13:57:10+08:00">2022-02-13</time>
+              <time title="创建时间：2022-02-13 23:11:42 / 修改时间：23:12:47" itemprop="dateCreated datePublished" datetime="2022-02-13T23:11:42+08:00">2022-02-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,39 +264,156 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h1><p>csapp第六章缓存笔记</p>
+        <h1 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h1><p>csapp第七章连接器</p>
 <span id="more"></span>
 
-<h2 id="6-1-存储技术"><a href="#6-1-存储技术" class="headerlink" title="6.1 存储技术"></a>6.1 存储技术</h2><ol>
-<li>随机存储器,对于随机存储主要是分为三种<ul>
-<li>静态RAM-SRAM  主要是用作高速缓存存储器，时钟周期在4个左右</li>
-<li>动态RAM-DRAM  用途十分广泛包括内存，以及许多特定用途DRAM等，时钟周期大概是SRAM的十倍左右</li>
-<li>非易失性存储器，最常见的也就是我们所说的闪存，主要用于提高读数据的效率。</li>
-</ul>
-</li>
-<li>磁盘，我们所知一般磁盘分为两种一种是机械硬盘，另外一种就是固态硬盘<ul>
-<li>机械硬盘构造：机械硬盘是由盘片构成的，可以理解位光盘只不过存储信息是根据盘片上固定位置的磁感应来存储的，对于一个盘片有上下两层，每层由很多个磁道构成，每个磁道由很多扇区构成，在很久以前，磁道的扇区是固定的外层的扇区数是根据最内层的位置决定，后来我们让每层扇区各自为政，提高了存储信息的容量。</li>
-<li>机械硬盘存储信息：首先我们要找到读取信息所在的磁道，称为寻道时间，其次我们要在当前磁道旋转早到信息的开头称为旋转时间内，最后读取信息称为传送时间。对于读取是通过一个针头，类似于黑胶唱片的那种。但是，我们怎么确定要找哪个位置呢？这里我们运用了逻辑磁盘块，类似于一层封装。<strong>封装是多么常用的技术呀！！！</strong></li>
-<li>cpu读取，对于cpu与磁盘交互，我们会先根据缓存到主存，然后发送信息，让内核切换进程。</li>
-<li>固态硬盘构造：固态硬盘构造更像我们后面学的缓存，是一片又一片的信息片构成的，对于读取会更快，但是如果想删除一个元素必须刷新赋予其他值到另一个片中。</li>
-</ul>
-</li>
-</ol>
-<h2 id="6-2-局部性"><a href="#6-2-局部性" class="headerlink" title="6.2 局部性"></a>6.2 局部性</h2><ol>
-<li><p>对于局部性分为两种：</p>
+<h2 id="预先说明"><a href="#预先说明" class="headerlink" title="预先说明"></a>预先说明</h2><p>我个人认为理解第七章是存在一定困难的，至少在我学习的时候理解起来是有难度的，我在看书的时候是抠字眼进行理解大，因此我认为我写的笔记并不能很好的给其他人作为一个第一次阅读的指导，但是对于复习和理解一些重点内容的大意，我想我的文章还是略有帮助的，下面开始正文。</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>对于之前我写的章节笔记，我是没有写目录概述的，但是我认为这个章节的内容必须写。</p>
 <ul>
-<li>空间局部性   指的是对于当前空间的下一个空间访问更快</li>
-<li>时间局部性   指的是对于当前访问的下次更可能访问刚才访问过的</li>
+<li>概述 </li>
+<li>编译器驱动程序 主要介绍了main.c根据编译器和链接器生成可执行文件和通过加载器执行文件。</li>
+<li>静态连接 这里主要是写了链接器两个重要部分，符号解析以及重定位。</li>
+<li>目标文件 这里主要就是说有可重定向，可执行和共享三种目标文件</li>
+<li>可重定向目标文件 主要是理解表</li>
+<li>符号和符号表，两个重点，符号链接，一级符号表的struct。<ul>
+<li>符号链接中有两个重点，对于全局变量的三个要求，以及使用基础命令行进行多个目标文件的链接的顺序</li>
 </ul>
-<p>其实空间局部性是我们后面缓存构造十分重要的思想，而时间局部性更是缓存的基础。</p>
 </li>
-<li><p>对于数组来说，访问当前行的下一个总比访问下一行的当前这个更快。</p>
+<li>重定向 最基本的相对地址和绝对地址</li>
+<li>可执行的目标文件 理解表</li>
+<li>加载可执行的目标文件 理解表，这是内存的另外一个十分重要的理解层面的抽象</li>
+<li>动态链接库 静态链接和动态链接的区别</li>
+</ul>
+<h2 id="7-1-编译器驱动程序"><a href="#7-1-编译器驱动程序" class="headerlink" title="7.1 编译器驱动程序"></a>7.1 编译器驱动程序</h2><ul>
+<li>.c文件通过编译器(ccl)生成.i的ASCII码的中间文件</li>
+<li>.i文件再通过编译器生产能一个.s的ASCII汇编语言文件(文本)       【再attack-lab中接触过】</li>
+<li>再通过汇编器生成一个.o的二进制的可重定向的目标文件</li>
+<li>再将多个.o文件通过链接器生成一个可执行文件，再Linux系统上是绿色的</li>
+<li>如果想要执行文件输出<code>./绿色文件名</code>通过加载器，加载代码和数据复制到内存中然后转移控制到开头</li>
+</ul>
+<h2 id="7-2-静态链接"><a href="#7-2-静态链接" class="headerlink" title="7.2 静态链接"></a>7.2 静态链接</h2><ol>
+<li>链接器的功能:通过输入一组可重定向的目标文件和命令行参数，输出一个可加载，可执行的可执行目标文件。</li>
+<li>链接器的两个重要功能:<ul>
+<li>符号解析 将符号的定义与引用链接起来。 【最简单说明:对于每一个单独的函数文件，如何加载和定义内部和外部的函数的变量】</li>
+<li>重定位  【最简单说明：对于我们的.o文件的起始地址都是00000，只有通过链接器才能将具体的地址链接。】</li>
+</ul>
+</li>
+<li>谨记一点目标文件是一个字符序列。</li>
+</ol>
+<h2 id="7-3-目标文件"><a href="#7-3-目标文件" class="headerlink" title="7.3 目标文件"></a>7.3 目标文件</h2><p>目标文件的三种形式:</p>
+<ul>
+<li>可重定向</li>
+<li>可执行</li>
+<li>共享   【动态链接】</li>
+</ul>
+<h2 id="7-4-可重定位目标文件"><a href="#7-4-可重定位目标文件" class="headerlink" title="7.4 可重定位目标文件"></a>7.4 可重定位目标文件</h2><ul>
+<li>ELF头 一个16字节的序列以及信息 (例如:ELF头的大小，目标文件类型，机器类型，节头部表的文件偏移，节头部表中条目的大小和数量等)</li>
+<li>.text 已将编译的机械代码</li>
+<li>.rodata 只读数据</li>
+<li>.data 已初始化的全局变量和静态变量</li>
+<li>.bss 未初始化和初始化为0的全局变量和静态变量</li>
+<li>.symtab 符号表不包含局部变量</li>
+<li>.rel.text .text中需要再重定位中修改的位置</li>
+<li>.rel.data 被模块引用外部或是内部定义全局变量</li>
+<li>.debug 符号表 .line .c文件中行号和.text中机器指令之间的映射 只有再-g调用编译器驱动程序才会出现</li>
+<li>.strtab 一个字符串表，以null结尾的字符串序列</li>
+</ul>
+<h2 id="7-5-符号和符号表"><a href="#7-5-符号和符号表" class="headerlink" title="7.5 符号和符号表"></a>7.5 符号和符号表</h2><ol>
+<li><p>三种符号</p>
+<ul>
+<li>自身定义的并能被其他模块引用的全局符号       【对应非静态的函数和全局变量】</li>
+<li>其他模块定义并能够被引用的全局符号          【对应非静态的函数和全局变量】</li>
+<li>只能被自身定义和引用的局部符号。            【对应带static的属性和全局符号】</li>
+</ul>
+<p>即static的变量是不在栈中管理的，而是在.data和.bss中创建一个有唯一名字的本地链接符号。</p>
+</li>
+<li><p>符号表的基本单位条目</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> name;            <span class="comment">//字符串表中的字节偏移</span></span><br><span class="line">    <span class="keyword">char</span> type:<span class="number">4</span>,         <span class="comment">//函数还是数据  4bit</span></span><br><span class="line">         binding:<span class="number">4</span>;      <span class="comment">//本地还是全局  4bit</span></span><br><span class="line">    <span class="keyword">char</span> reserved;       <span class="comment">//未使用</span></span><br><span class="line">    <span class="keyword">short</span> section;       <span class="comment">//节头部表的索引</span></span><br><span class="line">    <span class="keyword">long</span> value;          <span class="comment">//距离节起始位置的偏移</span></span><br><span class="line">    <span class="keyword">long</span> size;           <span class="comment">//大小(字节)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>section具体分配到哪个节，其中有三个伪节:</p>
+<ul>
+<li><p>ABS表示不该被重定位</p>
+</li>
+<li><p>UNDEF表示未被定义，也就是外部引用</p>
+</li>
+<li><p>COMMON表示还未被分配位置的未初始化。</p>
+<p>COMMON和.bss不同</p>
+<ul>
+<li>COMMON 未初始化的全局变量</li>
+<li>.bss 未初始化的静态变量以及初始化为0的全局和静态变量</li>
+</ul>
+</li>
+</ul>
 </li>
 </ol>
-<h2 id="6-3-缓存"><a href="#6-3-缓存" class="headerlink" title="6.3 缓存"></a>6.3 缓存</h2><p>建议直接看书，因为有很多图形和第一次需要记住的知识，我写这点仅仅用于我的复习。</p>
-<ol>
-<li>缓存简单抽象为一个二维数组，第一个代表组数，第二个代表行数。</li>
-<li>缓存最主要的是考虑抖动，因此可以使用blocking和循环的ijk变化观察哪个未命中次数最小。</li>
+<h2 id="7-6-符号解析"><a href="#7-6-符号解析" class="headerlink" title="7.6 符号解析"></a>7.6 符号解析</h2><ol>
+<li><p>解析多重定义的全局符号规则       【已初始化符号和函数为强符号      未初始化符号未弱符号】</p>
+<ul>
+<li>不允许有多个同名强符号。 </li>
+<li>强符号和弱符号选强符号。</li>
+<li>多个同名弱符号，随机选。</li>
+</ul>
+<p>这里会出现至少两种错误：</p>
+<ul>
+<li>在函数A和函数B分别定义了一个弱符号，当选取B的为使用符号时，若A中修改了值则B中的值也会修改，会导致B的函数可能会发生错误，因为B中的x变量可能会发生变化。</li>
+<li>不同类型的同名符号可能会导致其他变量值变化，例如修改double值会修改两个int值</li>
+</ul>
+</li>
+<li><p>静态库解析引用</p>
+<ul>
+<li>一个为维护可重定位目标文件的集合E，一个为解析的符号U, 一个在前面已经输入文件中已定义的符号集合D。</li>
+<li>片段每一个输入文件f，是目标文件还是一个存档文件(.a文件)<ul>
+<li>如果是目标文件，则将f添加到E，修改U和D中的符号定义和引用</li>
+<li>如果是存档文件，则将f加入E，修改U和D中符号定义和引用，当U和D不在变化时，则将不包含在E中的成员文件(.o文件丢弃），然后处理了下一个</li>
+</ul>
+</li>
+<li>如果U不为空则抛出错误</li>
+</ul>
+</li>
+<li><p>不同的链接想法：</p>
+<ul>
+<li>让编译器辨认出标准函数    【类似关键字?】</li>
+<li>将所有C函数放在一个可重定向化目标代码，在每一个可执行目标文件都包含一份标准函数的集合副本</li>
+<li>构建一个存档文件，将每个函数分别变成可重定向目标文件然后作为存档文件的成员文件  【正在使用的】</li>
+</ul>
+</li>
+</ol>
+<h2 id="7-7-重定位"><a href="#7-7-重定位" class="headerlink" title="7.7 重定位"></a>7.7 重定位</h2><ol>
+<li><p>重定位的两类</p>
+<ul>
+<li>重定位节和符号定义，在运行时赋予函数和变量地址</li>
+<li>重定位节中的符号引用</li>
+</ul>
+</li>
+<li><p>将.rel.text和.rel.data中重定向，在.rel.text和.rel.data包含一个重定向条目</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span></span><br><span class="line">    <span class="keyword">long</span> offet;                     <span class="comment">//相对于节地址的索引</span></span><br><span class="line">    <span class="keyword">long</span> type:<span class="number">32</span>,                   <span class="comment">//重定向方法的类型</span></span><br><span class="line">    	 symbol:<span class="number">32</span>;                 <span class="comment">//标识被修改引用应该执行的符号；</span></span><br><span class="line">    <span class="keyword">long</span> addend;                    <span class="comment">//常数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于具体的两种方法，细节太多因此不在这里写，详情可一看csapp书的7.7.2</p>
+</li>
+</ol>
+<h2 id="7-8-可执行目标文件"><a href="#7-8-可执行目标文件" class="headerlink" title="7.8 可执行目标文件"></a>7.8 可执行目标文件</h2><ul>
+<li>ELF头</li>
+<li>段头部表 描述每个信息的，例如开始的地址等，.text的开头固定在 0x400000</li>
+<li>.init</li>
+<li>.text</li>
+<li>.rodata</li>
+<li>.data</li>
+<li>.bss</li>
+<li>.symtab</li>
+<li>.debug</li>
+<li>.line</li>
+<li>.strtab</li>
+</ul>
+<h2 id="7-9-加载可执行目标文件"><a href="#7-9-加载可执行目标文件" class="headerlink" title="7.9 加载可执行目标文件"></a>7.9 加载可执行目标文件</h2><p>图A</p>
+<h2 id="7-10-动态链接"><a href="#7-10-动态链接" class="headerlink" title="7.10 动态链接"></a>7.10 动态链接</h2><ol>
+<li><p>文件后缀.so</p>
+</li>
+<li><p>对于每个库只有一个，是共享的</p>
+</li>
+<li><p>通过链接器形成部分链接的可执行目标文件,然后再加载时通过动态链接器重定位.so的文本和数据到内存段，然后再在可执行目标文件中重定位所有对于.so文件中定义的符号的引用。</p>
+</li>
+<li><p>动态链接并不是将代码和数据节复制到可执行文件，相反链接器复制了一些重定向的符号表信息，也许这就是ABS的用处；</p>
+</li>
 </ol>
 
     </div>
@@ -352,7 +469,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wangzd0209.com/2022/02/13/csapp-%E7%AC%AC%E5%85%AD%E7%AB%A0/" title="csapp-缓存">http://wangzd0209.com/2022/02/13/csapp-第六章/</a>
+    <a href="http://wangzd0209.com/2022/02/13/csapp-%E9%93%BE%E6%8E%A5%E5%99%A8/" title="csapp-链接器">http://wangzd0209.com/2022/02/13/csapp-链接器/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -373,13 +490,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/02/13/cache-lab/" rel="prev" title="cache-lab">
-      <i class="fa fa-chevron-left"></i> cache-lab
+    <a href="/2022/02/13/blocking/" rel="prev" title="blocking">
+      <i class="fa fa-chevron-left"></i> blocking
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/02/13/blocking/" rel="next" title="blocking">
-      blocking <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -438,7 +552,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">第六章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-%E5%AD%98%E5%82%A8%E6%8A%80%E6%9C%AF"><span class="nav-number">1.1.</span> <span class="nav-text">6.1 存储技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-%E5%B1%80%E9%83%A8%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">6.2 局部性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-%E7%BC%93%E5%AD%98"><span class="nav-number">1.3.</span> <span class="nav-text">6.3 缓存</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">第七章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E5%85%88%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text">预先说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%E7%BC%96%E8%AF%91%E5%99%A8%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.3.</span> <span class="nav-text">7.1 编译器驱动程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">1.4.</span> <span class="nav-text">7.2 静态链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="nav-number">1.5.</span> <span class="nav-text">7.3 目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-%E5%8F%AF%E9%87%8D%E5%AE%9A%E4%BD%8D%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="nav-number">1.6.</span> <span class="nav-text">7.4 可重定位目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-5-%E7%AC%A6%E5%8F%B7%E5%92%8C%E7%AC%A6%E5%8F%B7%E8%A1%A8"><span class="nav-number">1.7.</span> <span class="nav-text">7.5 符号和符号表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-6-%E7%AC%A6%E5%8F%B7%E8%A7%A3%E6%9E%90"><span class="nav-number">1.8.</span> <span class="nav-text">7.6 符号解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-7-%E9%87%8D%E5%AE%9A%E4%BD%8D"><span class="nav-number">1.9.</span> <span class="nav-text">7.7 重定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-8-%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="nav-number">1.10.</span> <span class="nav-text">7.8 可执行目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-9-%E5%8A%A0%E8%BD%BD%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="nav-number">1.11.</span> <span class="nav-text">7.9 加载可执行目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-10-%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">1.12.</span> <span class="nav-text">7.10 动态链接</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
