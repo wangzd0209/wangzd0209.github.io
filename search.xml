@@ -4,6 +4,101 @@
   
     
     <entry>
+      <title>blocking</title>
+      <link href="/2022/02/13/blocking/"/>
+      <url>/2022/02/13/blocking/</url>
+      
+        <content type="html"><![CDATA[<h1 id="blocking"><a href="#blocking" class="headerlink" title="blocking"></a>blocking</h1><p>关于缓存矩阵的分块</p><span id="more"></span><h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>csapp-cache章节：<a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/recitations/rec07.pdf">http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/recitations/rec07.pdf</a></p><h2 id="简要说明"><a href="#简要说明" class="headerlink" title="简要说明"></a>简要说明</h2><p>对于访问一个矩阵数据，我们单独访问一行加一列会得到(n&#x2F;(缓存行简称c))+n个，对于访问多个只需要叠加即可。</p><p>而blocking技术是同过在我们访问多行时，将我们读取列时得缓存抖动变为读取行时得缓存抖动，此时每个块为(B&#x2F;c)*B</p><p>因此我们读相同多得行列得到得缓存不命中分别为((n&#x2F;c)+n)B和nB&#x2F;4因此我们可以得到(c+1)&#x2F;c一定大于(1&#x2F;4)，所以未命中率减少，blocking有用；</p><p>在做cache-lab第二部分十分有用</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> csapp </category>
+          
+          <category> lab </category>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> csapp </tag>
+            
+            <tag> cache-lab </tag>
+            
+            <tag> blocking </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>csapp-第六章</title>
+      <link href="/2022/02/13/csapp-%E7%AC%AC%E5%85%AD%E7%AB%A0/"/>
+      <url>/2022/02/13/csapp-%E7%AC%AC%E5%85%AD%E7%AB%A0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h1><p>csapp第六章笔记</p><span id="more"></span><h2 id="6-1-存储技术"><a href="#6-1-存储技术" class="headerlink" title="6.1 存储技术"></a>6.1 存储技术</h2><ol><li>随机存储器,对于随机存储主要是分为三种<ul><li>静态RAM-SRAM  主要是用作高速缓存存储器，时钟周期在4个左右</li><li>动态RAM-DRAM  用途十分广泛包括内存，以及许多特定用途DRAM等，时钟周期大概是SRAM的十倍左右</li><li>非易失性存储器，最常见的也就是我们所说的闪存，主要用于提高读数据的效率。</li></ul></li><li>磁盘，我们所知一般磁盘分为两种一种是机械硬盘，另外一种就是固态硬盘<ul><li>机械硬盘构造：机械硬盘是由盘片构成的，可以理解位光盘只不过存储信息是根据盘片上固定位置的磁感应来存储的，对于一个盘片有上下两层，每层由很多个磁道构成，每个磁道由很多扇区构成，在很久以前，磁道的扇区是固定的外层的扇区数是根据最内层的位置决定，后来我们让每层扇区各自为政，提高了存储信息的容量。</li><li>机械硬盘存储信息：首先我们要找到读取信息所在的磁道，称为寻道时间，其次我们要在当前磁道旋转早到信息的开头称为旋转时间内，最后读取信息称为传送时间。对于读取是通过一个针头，类似于黑胶唱片的那种。但是，我们怎么确定要找哪个位置呢？这里我们运用了逻辑磁盘块，类似于一层封装。<strong>封装是多么常用的技术呀！！！</strong></li><li>cpu读取，对于cpu与磁盘交互，我们会先根据缓存到主存，然后发送信息，让内核切换进程。</li><li>固态硬盘构造：固态硬盘构造更像我们后面学的缓存，是一片又一片的信息片构成的，对于读取会更快，但是如果想删除一个元素必须刷新赋予其他值到另一个片中。</li></ul></li></ol><h2 id="6-2-局部性"><a href="#6-2-局部性" class="headerlink" title="6.2 局部性"></a>6.2 局部性</h2><ol><li><p>对于局部性分为两种：</p><ul><li>空间局部性   指的是对于当前空间的下一个空间访问更快</li><li>时间局部性   指的是对于当前访问的下次更可能访问刚才访问过的</li></ul><p>其实空间局部性是我们后面缓存构造十分重要的思想，而时间局部性更是缓存的基础。</p></li><li><p>对于数组来说，访问当前行的下一个总比访问下一行的当前这个更快。</p></li></ol><h2 id="6-3-缓存"><a href="#6-3-缓存" class="headerlink" title="6.3 缓存"></a>6.3 缓存</h2><p>建议直接看书，因为有很多图形和第一次需要记住的知识，我写这点仅仅用于我的复习。</p><ol><li>缓存简单抽象为一个二维数组，第一个代表组数，第二个代表行数。</li><li>缓存最主要的是考虑抖动，因此可以使用blocking和循环的ijk变化观察哪个未命中次数最小。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> csapp </category>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> csapp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>cache-lab</title>
+      <link href="/2022/02/13/cache-lab/"/>
+      <url>/2022/02/13/cache-lab/</url>
+      
+        <content type="html"><![CDATA[<h1 id="cache-lab"><a href="#cache-lab" class="headerlink" title="cache-lab"></a>cache-lab</h1><p>csapp第四个实验</p><span id="more"></span><h2 id="预备说明"><a href="#预备说明" class="headerlink" title="预备说明"></a>预备说明</h2><p>关于这个lab其实我大部分得思路都是从其他人的博客得来的，因此我在这里只是简述一下我遇到得一些困难和理解性的东西</p><p><a href="http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/recitations/rec07.pdf">上课的ppt</a>包含关于第一部分一些帮助函数和第二部分最重要思想blocking</p><h3 id="博客推荐"><a href="#博客推荐" class="headerlink" title="博客推荐"></a>博客推荐</h3><ol><li><p>十分重要的博客：<a href="https://www.cnblogs.com/liqiuhao/p/8026100.html?utm_source=debugrun&amp;utm_medium=referral">https://www.cnblogs.com/liqiuhao/p/8026100.html?utm_source=debugrun&amp;utm_medium=referral</a></p></li><li><p>推荐博客：<a href="https://zhuanlan.zhihu.com/p/42754565%EF%BC%8C%E4%BD%86%E6%98%AF%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2%E5%85%B3%E4%BA%8E64^64%E7%9A%84%E5%9B%BE%E6%98%AF%E9%94%99%E8%AF%AF%E7%9A%84%E8%AF%B7%E7%9C%8B%E5%8F%A6%E4%B8%80%E4%B8%AA%E3%80%82">https://zhuanlan.zhihu.com/p/42754565，但是这个博客关于64^64的图是错误的请看另一个。</a></p></li></ol><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>我主要说明过于cache-lab第二部分64*64的问题，这里最难理解的是逆序存储，其实这里很关键的点就是在3和4号转置是如果我们都从上往下，那么每一个元素读取都会发生抖动，但是当我们逆序读取时，我们对于3号是从下往下上的，对于四号是从上往下的，因此在第一行的时候，对于3号而言替换的是第四行的cache，而对于四号而言替换的第一行的cache，同时对于4号来说2号此时缓存的cache刚好就是4号所需要的。而如果我们正序读取，那么我们在2号放入是就会刷新缓存，同时在四号放入是还会刷新缓存。</p><p><strong>如果看不明白请看第二个博客的解释和第一个博客的图，第二个博客的图是错误的</strong></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>虽然这个lab我更多的是了解的居多但是lab我也是自己手敲的代码，同时对于一些简单抽象cache缓存组和blocking又了很深刻的理解。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> csapp </category>
+          
+          <category> lab </category>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> lab </tag>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> csapp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>attack-lab</title>
       <link href="/2022/02/09/attack-lab/"/>
       <url>/2022/02/09/attack-lab/</url>
