@@ -32,19 +32,19 @@
     var CONFIG = {"hostname":"wangzd0209.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="shell-lab预先说明博客推荐我个人认为考虑的比较周到的博客：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;119034923 对于信号阻塞比较到位的github代码：https:&#x2F;&#x2F;github.com&#x2F;BlackDragonF&#x2F;CSAPPLabs.git 相关资料csapp书的说明：http:&#x2F;&#x2F;csapp.cs.cmu.edu&#x2F;3e&#x2F;shlab.pdf cmu复习.ppt 我">
+  <meta name="description" content="预先说明博客推荐我个人认为考虑的比较周到的博客：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;119034923 对于信号阻塞比较到位的github代码：https:&#x2F;&#x2F;github.com&#x2F;BlackDragonF&#x2F;CSAPPLabs.git 相关资料csapp书的说明：http:&#x2F;&#x2F;csapp.cs.cmu.edu&#x2F;3e&#x2F;shlab.pdf cmu复习.ppt 我的说明对于这个实验">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell-lab">
 <meta property="og:url" content="http://wangzd0209.com/2022/02/17/shell-lab/index.html">
 <meta property="og:site_name" content="东东园">
-<meta property="og:description" content="shell-lab预先说明博客推荐我个人认为考虑的比较周到的博客：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;119034923 对于信号阻塞比较到位的github代码：https:&#x2F;&#x2F;github.com&#x2F;BlackDragonF&#x2F;CSAPPLabs.git 相关资料csapp书的说明：http:&#x2F;&#x2F;csapp.cs.cmu.edu&#x2F;3e&#x2F;shlab.pdf cmu复习.ppt 我">
+<meta property="og:description" content="预先说明博客推荐我个人认为考虑的比较周到的博客：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;119034923 对于信号阻塞比较到位的github代码：https:&#x2F;&#x2F;github.com&#x2F;BlackDragonF&#x2F;CSAPPLabs.git 相关资料csapp书的说明：http:&#x2F;&#x2F;csapp.cs.cmu.edu&#x2F;3e&#x2F;shlab.pdf cmu复习.ppt 我的说明对于这个实验">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-17T14:54:52.000Z">
-<meta property="article:modified_time" content="2022-02-17T14:58:50.732Z">
+<meta property="article:modified_time" content="2022-06-22T14:25:28.676Z">
 <meta property="article:author" content="Wangzd">
 <meta property="article:tag" content="笔记">
-<meta property="article:tag" content="lab">
 <meta property="article:tag" content="csapp">
+<meta property="article:tag" content="lab">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://wangzd0209.com/2022/02/17/shell-lab/">
@@ -236,10 +236,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-02-17 22:54:52 / 修改时间：22:58:50" itemprop="dateCreated datePublished" datetime="2022-02-17T22:54:52+08:00">2022-02-17</time>
+              <time title="创建时间：2022-02-17 22:54:52" itemprop="dateCreated datePublished" datetime="2022-02-17T22:54:52+08:00">2022-02-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-22 22:25:28" itemprop="dateModified" datetime="2022-06-22T22:25:28+08:00">2022-06-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -269,7 +275,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="shell-lab"><a href="#shell-lab" class="headerlink" title="shell-lab"></a>shell-lab</h1><h2 id="预先说明"><a href="#预先说明" class="headerlink" title="预先说明"></a>预先说明</h2><h3 id="博客推荐"><a href="#博客推荐" class="headerlink" title="博客推荐"></a>博客推荐</h3><p>我个人认为考虑的比较周到的博客：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/119034923">https://zhuanlan.zhihu.com/p/119034923</a></p>
+        <h2 id="预先说明"><a href="#预先说明" class="headerlink" title="预先说明"></a>预先说明</h2><h3 id="博客推荐"><a href="#博客推荐" class="headerlink" title="博客推荐"></a>博客推荐</h3><p>我个人认为考虑的比较周到的博客：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/119034923">https://zhuanlan.zhihu.com/p/119034923</a></p>
 <p>对于信号阻塞比较到位的github代码：<a target="_blank" rel="noopener" href="https://github.com/BlackDragonF/CSAPPLabs.git">https://github.com/BlackDragonF/CSAPPLabs.git</a></p>
 <h3 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h3><p>csapp书的说明：<a target="_blank" rel="noopener" href="http://csapp.cs.cmu.edu/3e/shlab.pdf">http://csapp.cs.cmu.edu/3e/shlab.pdf</a></p>
 <p>cmu复习<a href="https://link.zhihu.com/?target=http://www.cs.cmu.edu/afs/cs/academic/class/15213-f15/www/recitations/rec09.pdf">.ppt</a></p>
@@ -404,8 +410,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
-              <a href="/tags/lab/" rel="tag"># lab</a>
               <a href="/tags/csapp/" rel="tag"># csapp</a>
+              <a href="/tags/lab/" rel="tag"># lab</a>
           </div>
 
         
@@ -479,7 +485,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#shell-lab"><span class="nav-number">1.</span> <span class="nav-text">shell-lab</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E5%85%88%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text">预先说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E6%8E%A8%E8%8D%90"><span class="nav-number">1.1.1.</span> <span class="nav-text">博客推荐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99"><span class="nav-number">1.1.2.</span> <span class="nav-text">相关资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.3.</span> <span class="nav-text">我的说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">1.2.</span> <span class="nav-text">正文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">几个问题</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E5%85%88%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">预先说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E6%8E%A8%E8%8D%90"><span class="nav-number">1.1.</span> <span class="nav-text">博客推荐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99"><span class="nav-number">1.2.</span> <span class="nav-text">相关资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E8%AF%B4%E6%98%8E"><span class="nav-number">1.3.</span> <span class="nav-text">我的说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E6%96%87"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">几个问题</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

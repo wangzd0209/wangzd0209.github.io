@@ -32,15 +32,15 @@
     var CONFIG = {"hostname":"wangzd0209.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="第七章csapp第七章连接器">
+  <meta name="description" content="csapp第七章连接器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="csapp-链接器">
 <meta property="og:url" content="http://wangzd0209.com/2022/02/13/csapp-%E9%93%BE%E6%8E%A5%E5%99%A8/index.html">
 <meta property="og:site_name" content="东东园">
-<meta property="og:description" content="第七章csapp第七章连接器">
+<meta property="og:description" content="csapp第七章连接器">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-13T15:11:42.000Z">
-<meta property="article:modified_time" content="2022-02-13T15:12:47.815Z">
+<meta property="article:modified_time" content="2022-06-22T14:25:49.975Z">
 <meta property="article:author" content="Wangzd">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="csapp">
@@ -235,10 +235,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-02-13 23:11:42 / 修改时间：23:12:47" itemprop="dateCreated datePublished" datetime="2022-02-13T23:11:42+08:00">2022-02-13</time>
+              <time title="创建时间：2022-02-13 23:11:42" itemprop="dateCreated datePublished" datetime="2022-02-13T23:11:42+08:00">2022-02-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-22 22:25:49" itemprop="dateModified" datetime="2022-06-22T22:25:49+08:00">2022-06-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -264,7 +270,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h1><p>csapp第七章连接器</p>
+        <p>csapp第七章连接器</p>
 <span id="more"></span>
 
 <h2 id="预先说明"><a href="#预先说明" class="headerlink" title="预先说明"></a>预先说明</h2><p>我个人认为理解第七章是存在一定困难的，至少在我学习的时候理解起来是有难度的，我在看书的时候是抠字眼进行理解大，因此我认为我写的笔记并不能很好的给其他人作为一个第一次阅读的指导，但是对于复习和理解一些重点内容的大意，我想我的文章还是略有帮助的，下面开始正文。</p>
@@ -555,7 +561,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">第七章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E5%85%88%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text">预先说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%E7%BC%96%E8%AF%91%E5%99%A8%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.3.</span> <span class="nav-text">7.1 编译器驱动程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">1.4.</span> <span class="nav-text">7.2 静态链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="nav-number">1.5.</span> <span class="nav-text">7.3 目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-%E5%8F%AF%E9%87%8D%E5%AE%9A%E4%BD%8D%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="nav-number">1.6.</span> <span class="nav-text">7.4 可重定位目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-5-%E7%AC%A6%E5%8F%B7%E5%92%8C%E7%AC%A6%E5%8F%B7%E8%A1%A8"><span class="nav-number">1.7.</span> <span class="nav-text">7.5 符号和符号表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-6-%E7%AC%A6%E5%8F%B7%E8%A7%A3%E6%9E%90"><span class="nav-number">1.8.</span> <span class="nav-text">7.6 符号解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-7-%E9%87%8D%E5%AE%9A%E4%BD%8D"><span class="nav-number">1.9.</span> <span class="nav-text">7.7 重定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-8-%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="nav-number">1.10.</span> <span class="nav-text">7.8 可执行目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-9-%E5%8A%A0%E8%BD%BD%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="nav-number">1.11.</span> <span class="nav-text">7.9 加载可执行目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-10-%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">1.12.</span> <span class="nav-text">7.10 动态链接</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E5%85%88%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">预先说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">2.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%E7%BC%96%E8%AF%91%E5%99%A8%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.</span> <span class="nav-text">7.1 编译器驱动程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text">7.2 静态链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">7.3 目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-4-%E5%8F%AF%E9%87%8D%E5%AE%9A%E4%BD%8D%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">7.4 可重定位目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-5-%E7%AC%A6%E5%8F%B7%E5%92%8C%E7%AC%A6%E5%8F%B7%E8%A1%A8"><span class="nav-number">7.</span> <span class="nav-text">7.5 符号和符号表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-6-%E7%AC%A6%E5%8F%B7%E8%A7%A3%E6%9E%90"><span class="nav-number">8.</span> <span class="nav-text">7.6 符号解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-7-%E9%87%8D%E5%AE%9A%E4%BD%8D"><span class="nav-number">9.</span> <span class="nav-text">7.7 重定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-8-%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="nav-number">10.</span> <span class="nav-text">7.8 可执行目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-9-%E5%8A%A0%E8%BD%BD%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6"><span class="nav-number">11.</span> <span class="nav-text">7.9 加载可执行目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-10-%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5"><span class="nav-number">12.</span> <span class="nav-text">7.10 动态链接</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
