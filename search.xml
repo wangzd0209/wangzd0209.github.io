@@ -4,6 +4,192 @@
   
     
     <entry>
+      <title>关于后端使用Nginx跨域和反向代理的集成</title>
+      <link href="/2022/06/22/%E5%85%B3%E4%BA%8E%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8Nginx%E8%B7%A8%E5%9F%9F%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E7%9A%84%E9%9B%86%E6%88%90/"/>
+      <url>/2022/06/22/%E5%85%B3%E4%BA%8E%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8Nginx%E8%B7%A8%E5%9F%9F%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E7%9A%84%E9%9B%86%E6%88%90/</url>
+      
+        <content type="html"><![CDATA[<h1 id="关于后端使用Nginx跨域和反向代理的集成"><a href="#关于后端使用Nginx跨域和反向代理的集成" class="headerlink" title="关于后端使用Nginx跨域和反向代理的集成"></a>关于后端使用Nginx跨域和反向代理的集成</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发日记 </category>
+          
+          <category> Nginx </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 开发日记 </tag>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Nginx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Nginx的反向代理</title>
+      <link href="/2022/06/22/Nginx%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
+      <url>/2022/06/22/Nginx%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Nginx的反向代理"><a href="#Nginx的反向代理" class="headerlink" title="Nginx的反向代理"></a>Nginx的反向代理</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发日记 </category>
+          
+          <category> Nginx </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 开发日记 </tag>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Nginx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Nginx的跨域配置</title>
+      <link href="/2022/06/22/Nginx%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE/"/>
+      <url>/2022/06/22/Nginx%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Nginx的跨域配置"><a href="#Nginx的跨域配置" class="headerlink" title="Nginx的跨域配置"></a>Nginx的跨域配置</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发日记 </category>
+          
+          <category> Nginx </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 开发日记 </tag>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Nginx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Nginx的HTTPS</title>
+      <link href="/2022/06/22/Nginx%E7%9A%84HTTPS/"/>
+      <url>/2022/06/22/Nginx%E7%9A%84HTTPS/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Nginx的HTTPS"><a href="#Nginx的HTTPS" class="headerlink" title="Nginx的HTTPS"></a>Nginx的HTTPS</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发日记 </category>
+          
+          <category> Nginx </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 开发日记 </tag>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Nginx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Nginx的location语法规范</title>
+      <link href="/2022/06/22/Nginx%E7%9A%84location%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/"/>
+      <url>/2022/06/22/Nginx%E7%9A%84location%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Nginx的location语法规范"><a href="#Nginx的location语法规范" class="headerlink" title="Nginx的location语法规范"></a>Nginx的location语法规范</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发日记 </category>
+          
+          <category> Nginx </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 开发日记 </tag>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Nginx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Nginx总结</title>
+      <link href="/2022/06/22/Nginx%E6%80%BB%E7%BB%93/"/>
+      <url>/2022/06/22/Nginx%E6%80%BB%E7%BB%93/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Nginx-总结"><a href="#Nginx-总结" class="headerlink" title="Nginx 总结"></a>Nginx 总结</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><p>nginx的相关使用开发日志</p><span id="more"></span><h2 id="2-目录"><a href="#2-目录" class="headerlink" title="2. 目录"></a>2. 目录</h2><ol><li><p>[Nginx的安装和启动] </p></li><li><p>[Nginx的基本配置]</p></li><li><p>[Nginx的日志]</p></li><li><p>[Nginx的反向代理]</p></li><li><p>[Nginx的跨域配置]</p></li><li><p>[Nginx的HTTPS]</p></li><li><p>[Nginx的location语法规范]</p></li></ol><h2 id="3-实际开发中的解决思路"><a href="#3-实际开发中的解决思路" class="headerlink" title="3. 实际开发中的解决思路"></a>3. 实际开发中的解决思路</h2><ol><li>[关于后端使用Nginx跨域和反向代理的集成]</li></ol><h2 id="4-说明"><a href="#4-说明" class="headerlink" title="4. 说明"></a>4. 说明</h2><ol><li><p>全文参考博客如下</p><blockquote><p><a href="https://www.cnblogs.com/itzgr/p/13361959.html">木二博客 –十分推荐</a></p></blockquote></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发日记 </category>
+          
+          <category> Nginx </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 开发日记 </tag>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> Nginx </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>shell-lab</title>
       <link href="/2022/02/17/shell-lab/"/>
       <url>/2022/02/17/shell-lab/</url>
@@ -24,11 +210,11 @@
       
         <tags>
             
-            <tag> csapp </tag>
+            <tag> 笔记 </tag>
             
             <tag> lab </tag>
             
-            <tag> 笔记 </tag>
+            <tag> csapp </tag>
             
         </tags>
       
@@ -55,9 +241,9 @@
       
         <tags>
             
-            <tag> csapp </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> csapp </tag>
             
         </tags>
       
@@ -84,9 +270,9 @@
       
         <tags>
             
-            <tag> csapp </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> csapp </tag>
             
         </tags>
       
@@ -146,9 +332,9 @@
       
         <tags>
             
-            <tag> csapp </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> csapp </tag>
             
         </tags>
       
@@ -177,11 +363,11 @@
       
         <tags>
             
-            <tag> csapp </tag>
+            <tag> 笔记 </tag>
             
             <tag> lab </tag>
             
-            <tag> 笔记 </tag>
+            <tag> csapp </tag>
             
         </tags>
       
@@ -210,11 +396,11 @@
       
         <tags>
             
-            <tag> csapp </tag>
+            <tag> 笔记 </tag>
             
             <tag> lab </tag>
             
-            <tag> 笔记 </tag>
+            <tag> csapp </tag>
             
         </tags>
       
@@ -243,11 +429,11 @@
       
         <tags>
             
-            <tag> csapp </tag>
+            <tag> 笔记 </tag>
             
             <tag> lab </tag>
             
-            <tag> 笔记 </tag>
+            <tag> csapp </tag>
             
         </tags>
       
@@ -274,9 +460,9 @@
       
         <tags>
             
-            <tag> csapp </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> csapp </tag>
             
         </tags>
       
@@ -305,11 +491,11 @@
       
         <tags>
             
-            <tag> csapp </tag>
+            <tag> 笔记 </tag>
             
             <tag> lab </tag>
             
-            <tag> 笔记 </tag>
+            <tag> csapp </tag>
             
         </tags>
       

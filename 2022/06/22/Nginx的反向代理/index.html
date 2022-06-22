@@ -32,21 +32,22 @@
     var CONFIG = {"hostname":"wangzd0209.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="第八章csapp第八章缓存">
+  <meta name="description" content="Nginx的反向代理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="csapp-异常控制">
-<meta property="og:url" content="http://wangzd0209.com/2022/02/14/csapp-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6/index.html">
+<meta property="og:title" content="Nginx的反向代理">
+<meta property="og:url" content="http://wangzd0209.com/2022/06/22/Nginx%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/index.html">
 <meta property="og:site_name" content="东东园">
-<meta property="og:description" content="第八章csapp第八章缓存">
+<meta property="og:description" content="Nginx的反向代理">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-02-14T14:34:45.000Z">
-<meta property="article:modified_time" content="2022-02-14T14:35:42.984Z">
+<meta property="article:published_time" content="2022-06-22T14:15:44.000Z">
+<meta property="article:modified_time" content="2022-06-22T14:16:36.051Z">
 <meta property="article:author" content="Wangzd">
+<meta property="article:tag" content="开发日记">
 <meta property="article:tag" content="笔记">
-<meta property="article:tag" content="csapp">
+<meta property="article:tag" content="Nginx">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://wangzd0209.com/2022/02/14/csapp-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6/">
+<link rel="canonical" href="http://wangzd0209.com/2022/06/22/Nginx%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
 
 
 <script id="page-configurations">
@@ -59,7 +60,7 @@
   };
 </script>
 
-  <title>csapp-异常控制 | 东东园</title>
+  <title>Nginx的反向代理 | 东东园</title>
   
 
 
@@ -213,7 +214,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wangzd0209.com/2022/02/14/csapp-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6/">
+    <link itemprop="mainEntityOfPage" href="http://wangzd0209.com/2022/06/22/Nginx%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -226,7 +227,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          csapp-异常控制
+          Nginx的反向代理
         </h1>
 
         <div class="post-meta">
@@ -237,7 +238,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-02-14 22:34:45 / 修改时间：22:35:42" itemprop="dateCreated datePublished" datetime="2022-02-14T22:34:45+08:00">2022-02-14</time>
+              <time title="创建时间：2022-06-22 22:15:44 / 修改时间：22:16:36" itemprop="dateCreated datePublished" datetime="2022-06-22T22:15:44+08:00">2022-06-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -245,11 +246,11 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/csapp/" itemprop="url" rel="index"><span itemprop="name">csapp</span></a>
+                  <a href="/categories/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">开发日记</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/csapp/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                  <a href="/categories/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0/Nginx/" itemprop="url" rel="index"><span itemprop="name">Nginx</span></a>
                 </span>
             </span>
 
@@ -264,122 +265,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h1><p>csapp第八章缓存</p>
-<span id="more"></span>
-
-<h2 id="预先说明"><a href="#预先说明" class="headerlink" title="预先说明"></a>预先说明</h2><ol>
-<li>对于第八章正式提出了进程的概念，同时主要讲述了用户模块和内核之间如何进行切换，和异常控制。</li>
-<li>第八章的难点是根据函数提出了许多的新概念，概念不难理解但是多，因此需要看书从而充分理解。</li>
-</ol>
-<h2 id="8-1-异常"><a href="#8-1-异常" class="headerlink" title="8.1 异常"></a>8.1 异常</h2><ol>
-<li>异常是异常控制流的一种形式，通过硬件和操作系统实现。</li>
-<li>当处理器检测到有事件发生时，会根据异常表的跳转表，进行一个间接过程调用，从而跳转到一个专门设计的操作系统子程序。当完成后会发生如下情况:<ul>
-<li>将控制返回当前指令</li>
-<li>将控制返回给下一个指令</li>
-<li>终止程序</li>
-</ul>
-</li>
-<li>系统中每种类型的异常都分配了一个唯一的非负整数的异常符号，一部分异常数是处理器设计的，另一部分是操作系统确定的，各种异常构成了一个异常表，异常表是一组包含所有异常的地址数组，包含处理异常程序的首地址。同时对于异常表的首地址是放在一个特殊的寄存器中。</li>
-<li>异常于过程调用的不同<ul>
-<li>过程调用会将返回地址压入栈，而异常的返回地址只能是当前指令或是吓一跳指令</li>
-<li>异常时处理器会把一些额外状态压入栈中，在上下文切换时会需要</li>
-<li>异常状态下的访问权限最高，如果控制转移到内核，这些会被压入内核栈中。</li>
-</ul>
-</li>
-<li>异常分为四类<ul>
-<li>中断  异步  例如读取信息时主存向cpu发信息</li>
-<li>陷阱即系统调用</li>
-<li>故障 也是类似于调用但是只在错误情况下 执行完成则返回指令否则返回abort的内核例程</li>
-<li>终止 直接将控制返回一个abort的内核例程</li>
-</ul>
-</li>
-<li>系统调用会生成一张在内核中的跳转表，关于跳转表可以去看switch。</li>
-<li>系统调用主要是通过<code>syscall</code>的陷阱指令，同时系统调用的参数只能在寄存器</li>
-</ol>
-<h2 id="8-2-进程"><a href="#8-2-进程" class="headerlink" title="8.2 进程"></a>8.2 进程</h2><ol>
-<li>进程的两个关键抽象:<ul>
-<li>逻辑控制流     逻辑流主要是说明进程之间是片段化进行的</li>
-<li>地址空间       就是说每个进程的地址都是看作相同的</li>
-</ul>
-</li>
-<li>用户模式和内核模式  可以限制可访问的空间，通过位模式，只有设置了位模式才是内核模式</li>
-<li>上下文切换   不同进程之间切换</li>
-</ol>
-<h2 id="8-3-系统调用错误处理"><a href="#8-3-系统调用错误处理" class="headerlink" title="8.3 系统调用错误处理"></a>8.3 系统调用错误处理</h2><p>就是我们再写代码时对于系统调用要包含一层错误提示。</p>
-<h2 id="8-4-进程控制"><a href="#8-4-进程控制" class="headerlink" title="8.4 进程控制"></a>8.4 进程控制</h2><ol>
-<li><p>进程的几种状态：</p>
-<ul>
-<li>运行-执行中或挂起等待调度</li>
-<li>停止 等待SICCONT信号</li>
-<li>终止</li>
-</ul>
-</li>
-<li><p>获取进程id            pid_t可以理解为int</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">getpid</span><span class="params">()</span></span>; <span class="comment">//获取当前pid</span></span><br><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">getppid</span><span class="params">()</span></span>; <span class="comment">//获取父进程id</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>终止进程</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exit</span><span class="params">(<span class="keyword">int</span> status)</span></span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新建子进程</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">fork</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>几个特点:</p>
-<ul>
-<li>fork返回两次，父进程返回子进程id，子进程返回0</li>
-<li>并发执行，可能是子进程先执行也可能是父进程先执行</li>
-<li>相同但是独立的地址空间</li>
-<li>共享文件</li>
-</ul>
-</li>
-<li><p>回收子进程</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">pid_t</span> <span class="title">waitpid</span><span class="params">(<span class="keyword">pid_t</span> pid, <span class="keyword">int</span> *statusp, <span class="keyword">int</span> options)</span></span>; </span><br></pre></td></tr></table></figure>
-
-<p>几点说明:</p>
-<ul>
-<li>对于默认情况下，option&#x3D;0，等待直到一个子进程结束就返回。返回接受的子进程pid</li>
-<li>判定等待集合成员<ul>
-<li>pid&gt;0 等待单独的子进程</li>
-<li>pid&#x3D;-1 所有子进程</li>
-</ul>
-</li>
-<li>修改默认行为 option参数<ul>
-<li>WNOHANG       直接返回</li>
-<li>WUNTRACED     一个进程终止或是被停止</li>
-<li>WCONTINUED    一个运行的进程终止或是被停止的进程收到SIGCONT信号重新执行</li>
-<li>组合使用</li>
-</ul>
-</li>
-<li>检查已回收子进程的退出状态   status是statusp指向的值<ul>
-<li>WIFEXITED(status)   通过exit或是return正常退出，就返回真</li>
-<li>WEXITSTATUS(status)  </li>
-<li>WIFSIGNALED(status) 如果子进程是因为一个未被捕获的信号终止的，就返回真</li>
-<li>WTERMSIG(status)    返回导致子进程终止的信号编码</li>
-<li>WIFSTOPPED(status)  当前子进程是终止的，返回真</li>
-<li>WSTOPSIG(status)    返回导致子进程终止的信号编码</li>
-<li>WIFCONTINUED(status) 子进程收到SIGCONT信号重新启动就返回栈</li>
-</ul>
-</li>
-<li>如果没有子进程，则返回-1，并且error设置为ECHLED。如果被信号中断，那么他返回-1，并涉恶之error为EINTR</li>
-</ul>
-</li>
-<li><p>休眠</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">sleep</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> secs)</span></span>;  <span class="comment">//返回还剩下的要休眠的秒数 如果请求时间到了则返回0</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pause</span><span class="params">()</span></span>;   <span class="comment">//让函数休眠，直到收到一个信号</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>加载</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">execve</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *filename, <span class="keyword">const</span>* argv[], <span class="keyword">const</span>* envp[])</span></span>;  <span class="comment">//加载呈贡不返回，否则返回-1</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>argv[] 参数列表列表</p>
-<p>envp[] 环境变量列表</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="8-5-信号"><a href="#8-5-信号" class="headerlink" title="8.5 信号"></a>8.5 信号</h2><ol>
-<li>发送信号</li>
-<li>接受信号 可以自己写函数处理</li>
-<li>阻塞信号</li>
-</ol>
-
+        <h1 id="Nginx的反向代理"><a href="#Nginx的反向代理" class="headerlink" title="Nginx的反向代理"></a>Nginx的反向代理</h1>
     </div>
 	
 	
@@ -433,7 +319,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wangzd0209.com/2022/02/14/csapp-%E5%BC%82%E5%B8%B8%E6%8E%A7%E5%88%B6/" title="csapp-异常控制">http://wangzd0209.com/2022/02/14/csapp-异常控制/</a>
+    <a href="http://wangzd0209.com/2022/06/22/Nginx%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" title="Nginx的反向代理">http://wangzd0209.com/2022/06/22/Nginx的反向代理/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -444,8 +330,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0/" rel="tag"># 开发日记</a>
               <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
-              <a href="/tags/csapp/" rel="tag"># csapp</a>
+              <a href="/tags/Nginx/" rel="tag"># Nginx</a>
           </div>
 
         
@@ -454,12 +341,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/02/13/csapp-%E9%93%BE%E6%8E%A5%E5%99%A8/" rel="prev" title="csapp-链接器">
-      <i class="fa fa-chevron-left"></i> csapp-链接器
+    <a href="/2022/06/22/Nginx%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE/" rel="prev" title="Nginx的跨域配置">
+      <i class="fa fa-chevron-left"></i> Nginx的跨域配置
     </a></div>
       <div class="post-nav-item">
-    <a href="/2022/02/17/shell-lab/" rel="next" title="shell-lab">
-      shell-lab <i class="fa fa-chevron-right"></i>
+    <a href="/2022/06/22/%E5%85%B3%E4%BA%8E%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8Nginx%E8%B7%A8%E5%9F%9F%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E7%9A%84%E9%9B%86%E6%88%90/" rel="next" title="关于后端使用Nginx跨域和反向代理的集成">
+      关于后端使用Nginx跨域和反向代理的集成 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -519,7 +406,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">第八章</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E5%85%88%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text">预先说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-1-%E5%BC%82%E5%B8%B8"><span class="nav-number">1.2.</span> <span class="nav-text">8.1 异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-2-%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.3.</span> <span class="nav-text">8.2 进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-3-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="nav-number">1.4.</span> <span class="nav-text">8.3 系统调用错误处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-4-%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="nav-number">1.5.</span> <span class="nav-text">8.4 进程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-5-%E4%BF%A1%E5%8F%B7"><span class="nav-number">1.6.</span> <span class="nav-text">8.5 信号</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nginx%E7%9A%84%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">Nginx的反向代理</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
