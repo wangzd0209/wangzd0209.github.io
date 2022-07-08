@@ -136,7 +136,7 @@
       <link href="/2022/06/22/nginx/Nginx%E7%9A%84HTTPS/"/>
       <url>/2022/06/22/nginx/Nginx%E7%9A%84HTTPS/</url>
       
-        <content type="html"><![CDATA[<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><h2 id="HTTPS概述"><a href="#HTTPS概述" class="headerlink" title="HTTPS概述"></a>HTTPS概述</h2><h3 id="1-1-HTTPS介绍"><a href="#1-1-HTTPS介绍" class="headerlink" title="1.1 HTTPS介绍"></a>1.1 HTTPS介绍</h3><p>  超文本传输安全协议HTTPS（Hypertext Transfer Protocol Secure）是超文本传输协议和SSL&#x2F;TLS的组合，用以提供加密通讯及对网络服务器身份的鉴定。</p><h3 id="1-2-SSL介绍"><a href="#1-2-SSL介绍" class="headerlink" title="1.2 SSL介绍"></a>1.2 SSL介绍</h3><p>  SSL（Secure Socket Layer）安全套接字层是一种数字证书，它使用ssl协议在浏览器和web server之间建立一条安全通道，数据信息在client与server之间的安全传输。SSL使用证书来创建安全连接，通常有两种验证模式：</p><ul><li>仅客户端验证服务器的证书，客户端自己不提供证书；</li><li>客户端和服务器都互相验证对方的证书。</li></ul><h2 id="2-签名证书"><a href="#2-签名证书" class="headerlink" title="2 签名证书"></a>2 签名证书</h2><p>签名可以分为自签名证书，基于IP&#x2F;域名的证书，其中对于自签名的只有在站点内部，浏览器不承认，只有经过类似ca的授权crt证书才能在浏览器上没有小红点。</p><h3 id="2-1-自签名证书"><a href="#2-1-自签名证书" class="headerlink" title="2.1 自签名证书"></a>2.1 自签名证书</h3><p>基于openSSL进行，由于未涉及到因此请自行搜索</p><h3 id="2-2-免费证书申请"><a href="#2-2-免费证书申请" class="headerlink" title="2.2 免费证书申请"></a>2.2 免费证书申请</h3><ol><li>通过阿里云进行申请，自己搜索博客</li><li>通过IP进行 <a href="https://www.cheshirex.com/6789.html">教程</a>（注意：由于免费申请的IP证书过少，因此只找到一个）</li></ol><h2 id="3-Nginx-配置"><a href="#3-Nginx-配置" class="headerlink" title="3 Nginx 配置"></a>3 Nginx 配置</h2><h3 id="3-1-对于80端口的配置"><a href="#3-1-对于80端口的配置" class="headerlink" title="3.1 对于80端口的配置"></a>3.1 对于80端口的配置</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line"><span class="attribute">server_name</span>  <span class="number">47.101.157.10</span>;</span><br><span class="line"></span><br><span class="line"><span class="attribute">charset</span> utf-<span class="number">8</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#location /api/ &#123;</span></span><br><span class="line"><span class="comment">#proxy_pass   http://localhost:8084/;</span></span><br><span class="line">            <span class="comment">#proxy_redirect default;</span></span><br><span class="line"><span class="comment">#&#125;</span></span><br><span class="line">//重写http请求转换为https请求</span><br><span class="line"><span class="attribute">location</span> /api/ &#123;</span><br><span class="line"><span class="attribute">return</span><span class="number">301</span> https://$server_name$request_uri;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><h3 id="3-2-对于443端口的配置"><a href="#3-2-对于443端口的配置" class="headerlink" title="3.2 对于443端口的配置"></a>3.2 对于443端口的配置</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">443</span> ssl;</span><br><span class="line">        <span class="attribute">server_name</span>  <span class="number">47.101.157.10</span>;</span><br><span class="line"></span><br><span class="line">//自己的key和crt/pem文件</span><br><span class="line">        <span class="attribute">ssl_certificate</span>      /usr/local/nginx/ssl/certificate.crt;</span><br><span class="line">        <span class="attribute">ssl_certificate_key</span>  /usr/local/nginx/ssl/private.key;</span><br><span class="line"></span><br><span class="line"><span class="attribute">ssl_session_cache</span>   shared:SSL:<span class="number">1m</span>;</span><br><span class="line"><span class="attribute">ssl_session_timeout</span> <span class="number">2m</span>; </span><br><span class="line"></span><br><span class="line">    //通过端口转发到java处理</span><br><span class="line">        <span class="attribute">location</span> /api/ &#123;</span><br><span class="line">            <span class="attribute">proxy_pass</span>   http://localhost:8084/;</span><br><span class="line">            <span class="attribute">proxy_redirect</span> default;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><h2 id="4-过程中遇到的问题"><a href="#4-过程中遇到的问题" class="headerlink" title="4 过程中遇到的问题"></a>4 过程中遇到的问题</h2><h3 id="4-1-对于IP的证书申请"><a href="#4-1-对于IP的证书申请" class="headerlink" title="4.1 对于IP的证书申请"></a>4.1 对于IP的证书申请</h3><p>对于上述IP申请，中会有两个.crt文件，只需要将cundle.crt文件置于crexxxx文件之下即可。也可以通过linux的<code>cat crexxx.crt cundle.crt &gt; new.crt</code>即可</p><h3 id="4-2-对于服务器防火墙设置"><a href="#4-2-对于服务器防火墙设置" class="headerlink" title="4.2 对于服务器防火墙设置"></a>4.2 对于服务器防火墙设置</h3><p>一定要注意开放443，不然会一直拒绝访问，即使你已经设置成功了。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="1-HTTPS概述"><a href="#1-HTTPS概述" class="headerlink" title="1 HTTPS概述"></a>1 HTTPS概述</h2><h3 id="1-1-HTTPS介绍"><a href="#1-1-HTTPS介绍" class="headerlink" title="1.1 HTTPS介绍"></a>1.1 HTTPS介绍</h3><p>  超文本传输安全协议HTTPS（Hypertext Transfer Protocol Secure）是超文本传输协议和SSL&#x2F;TLS的组合，用以提供加密通讯及对网络服务器身份的鉴定。</p><h3 id="1-2-SSL介绍"><a href="#1-2-SSL介绍" class="headerlink" title="1.2 SSL介绍"></a>1.2 SSL介绍</h3><p>  SSL（Secure Socket Layer）安全套接字层是一种数字证书，它使用ssl协议在浏览器和web server之间建立一条安全通道，数据信息在client与server之间的安全传输。SSL使用证书来创建安全连接，通常有两种验证模式：</p><ul><li>仅客户端验证服务器的证书，客户端自己不提供证书；</li><li>客户端和服务器都互相验证对方的证书。</li></ul><span id="more"></span><h2 id="2-签名证书"><a href="#2-签名证书" class="headerlink" title="2 签名证书"></a>2 签名证书</h2><p>签名可以分为自签名证书，基于IP&#x2F;域名的证书，其中对于自签名的只有在站点内部，浏览器不承认，只有经过类似ca的授权crt证书才能在浏览器上没有小红点。</p><h3 id="2-1-自签名证书"><a href="#2-1-自签名证书" class="headerlink" title="2.1 自签名证书"></a>2.1 自签名证书</h3><p>基于openSSL进行，由于未涉及到因此请自行搜索</p><h3 id="2-2-免费证书申请"><a href="#2-2-免费证书申请" class="headerlink" title="2.2 免费证书申请"></a>2.2 免费证书申请</h3><ol><li>通过阿里云进行申请，自己搜索博客</li><li>通过IP进行 <a href="https://www.cheshirex.com/6789.html">教程</a>（注意：由于免费申请的IP证书过少，因此只找到一个）</li></ol><h2 id="3-Nginx-配置"><a href="#3-Nginx-配置" class="headerlink" title="3 Nginx 配置"></a>3 Nginx 配置</h2><h3 id="3-1-对于80端口的配置"><a href="#3-1-对于80端口的配置" class="headerlink" title="3.1 对于80端口的配置"></a>3.1 对于80端口的配置</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line"><span class="attribute">server_name</span>  <span class="number">47.101.157.10</span>;</span><br><span class="line"></span><br><span class="line"><span class="attribute">charset</span> utf-<span class="number">8</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#location /api/ &#123;</span></span><br><span class="line"><span class="comment">#proxy_pass   http://localhost:8084/;</span></span><br><span class="line">            <span class="comment">#proxy_redirect default;</span></span><br><span class="line"><span class="comment">#&#125;</span></span><br><span class="line">//重写http请求转换为https请求</span><br><span class="line"><span class="attribute">location</span> /api/ &#123;</span><br><span class="line"><span class="attribute">return</span><span class="number">301</span> https://$server_name$request_uri;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><h3 id="3-2-对于443端口的配置"><a href="#3-2-对于443端口的配置" class="headerlink" title="3.2 对于443端口的配置"></a>3.2 对于443端口的配置</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">443</span> ssl;</span><br><span class="line">        <span class="attribute">server_name</span>  <span class="number">47.101.157.10</span>;</span><br><span class="line"></span><br><span class="line">//自己的key和crt/pem文件</span><br><span class="line">        <span class="attribute">ssl_certificate</span>      /usr/local/nginx/ssl/certificate.crt;</span><br><span class="line">        <span class="attribute">ssl_certificate_key</span>  /usr/local/nginx/ssl/private.key;</span><br><span class="line"></span><br><span class="line"><span class="attribute">ssl_session_cache</span>   shared:SSL:<span class="number">1m</span>;</span><br><span class="line"><span class="attribute">ssl_session_timeout</span> <span class="number">2m</span>; </span><br><span class="line"></span><br><span class="line">    //通过端口转发到java处理</span><br><span class="line">        <span class="attribute">location</span> /api/ &#123;</span><br><span class="line">            <span class="attribute">proxy_pass</span>   http://localhost:8084/;</span><br><span class="line">            <span class="attribute">proxy_redirect</span> default;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><h2 id="4-过程中遇到的问题"><a href="#4-过程中遇到的问题" class="headerlink" title="4 过程中遇到的问题"></a>4 过程中遇到的问题</h2><h3 id="4-1-对于IP的证书申请"><a href="#4-1-对于IP的证书申请" class="headerlink" title="4.1 对于IP的证书申请"></a>4.1 对于IP的证书申请</h3><p>对于上述IP申请，中会有两个.crt文件，只需要将cundle.crt文件置于crexxxx文件之下即可。也可以通过linux的<code>cat crexxx.crt cundle.crt &gt; new.crt</code>即可</p><h3 id="4-2-对于服务器防火墙设置"><a href="#4-2-对于服务器防火墙设置" class="headerlink" title="4.2 对于服务器防火墙设置"></a>4.2 对于服务器防火墙设置</h3><p>一定要注意开放443，不然会一直拒绝访问，即使你已经设置成功了。</p>]]></content>
       
       
       <categories>
@@ -245,9 +245,9 @@
       
         <tags>
             
-            <tag> lab </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> lab </tag>
             
             <tag> csapp </tag>
             
@@ -398,9 +398,9 @@
       
         <tags>
             
-            <tag> lab </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> lab </tag>
             
             <tag> csapp </tag>
             
@@ -431,9 +431,9 @@
       
         <tags>
             
-            <tag> lab </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> lab </tag>
             
             <tag> csapp </tag>
             
@@ -464,9 +464,9 @@
       
         <tags>
             
-            <tag> lab </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> lab </tag>
             
             <tag> csapp </tag>
             
@@ -526,9 +526,9 @@
       
         <tags>
             
-            <tag> lab </tag>
-            
             <tag> 笔记 </tag>
+            
+            <tag> lab </tag>
             
             <tag> csapp </tag>
             
