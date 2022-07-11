@@ -4,6 +4,41 @@
   
     
     <entry>
+      <title>wireshark-tcp-lab</title>
+      <link href="/2022/07/11/wireshark-tcp-lab/"/>
+      <url>/2022/07/11/wireshark-tcp-lab/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-introduction"><a href="#1-introduction" class="headerlink" title="1 introduction"></a>1 introduction</h2><ol><li>请在完成当前lab的时候一定要看3.5，3.7</li><li>lab的几乎全部分析都是在<a href="http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84">http://gaia.cs.umass.edu/wireshark-labs/wireshark-traces.zip这个文件中的</a> <code>tcp-ethereal-trace-1</code>中所获得的，可以到官网下载，也可以在我的github上寻找。</li></ol><span id="more"></span><h2 id="2-Question-And-Answer"><a href="#2-Question-And-Answer" class="headerlink" title="2 Question And Answer"></a>2 Question And Answer</h2><h3 id="问题和回答"><a href="#问题和回答" class="headerlink" title="问题和回答"></a>问题和回答</h3><ol><li><p>client的IP地址和TCP端口号?</p></li><li><p>gaia.cs.umass.edu的IP地址和端口号？</p><ul><li>client的IP为 192.168.1.102， 端口为50982</li><li>sever的IP为 128.119.245.12， 端口为80</li></ul><p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/tcp_%E6%8F%A1%E6%89%8B.png" alt="tcp_握手"></p></li><li><p>建立自己的连接后client的IP地址和端口号？</p><ul><li>这是我自己电脑的连接，IP为 192.168.99.159， 端口为50982。同时对于浏览器的三次握手我们可以发现对于google会同时发三个tcp连接请求，但是只会有一个成功。<br><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/tcp%E6%8F%A1%E6%89%8B.png" alt="tcp握手"></li></ul></li><li><p>TCP连接中SYN段的序号是什么？什么标识了它是一个SYN段？</p></li><li><p>SYNACK段的序号是？SYNACK段中的Acknowledge属性的值是？gaia.cs.umass.edu怎么确认这个值？什么标识了他是一个SYNACK段？</p><ul><li>Seq &#x3D; 0 [SYN]</li><li>Seq &#x3D; 0 [SYN,ACK]</li><li>Acknowledge:set</li></ul><p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/Acknowledge_field.png" alt="Acknowledge_field"></p></li><li><p>TCP包含HTTP POST段的序号是什么？</p><ul><li>post_segement Seq&#x3D;1</li></ul><p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/image-20220711141747515.png" alt="image-20220711141747515"></p></li><li><p>将含有HTTP POST段作为第一个tcp连接。前六段的序号？什么时候段发送？什么时候接受每个段的ACK？每个段的RTT的值？EstimatedRTT是多少？</p><ul><li>RTT值</li></ul><p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/image-20220711144626178.png" alt="image-20220711144626178"></p></li><li><p>六个段的长度？</p><p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/image-20220711144752810.png" alt="image-20220711144752810"></p></li><li><p>对于整个跟踪包，收到的最小可用缓冲区空间量是多少？缺少接收器缓冲区空间是否会限制发送方传送 TCP 区段？、</p><ul><li>最小缓冲区为5840。</li><li>缺少接收器缓冲区空间会限制发送方传送 TCP 区段，这是因为 TCP 的<strong>流量控制服务</strong>，能够消除发送方使接收方缓存溢出的可能性，使得发送方的发送速率与接收方应用程序的读取速率相匹配。实现的方式是<strong>滑动窗口协议</strong>。</li></ul><p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/image-20220711145126622.png" alt="image-20220711145126622"></p></li><li><p>有无重传？为什么？</p><ul><li>没有，从图像可知序号与时间基本为线性关系。</li></ul><p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/image-20220711145008732.png" alt="image-20220711145008732"></p></li><li><p>接收器通常在 ACK 中确认多少数据？是否可以识别接收方每隔一个接收到的区段才发送确认的情况？</p><ul><li>TCP累积确认，最好的确认方式是通过自己的连接可以发现有时候是确认两个段有时候确认很多段。</li></ul></li><li><p>TCP 连接的吞吐量（每单位时间传输的节数）是多少？如何计算这个值？</p><p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/%E5%90%9E%E5%90%90%E9%87%8F.png" alt="吞吐量"></p></li><li><p>慢启动的开始和结束，什么时候变为了拥塞避免？</p><p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/%E6%85%A2%E5%90%AF%E5%8A%A8.png" alt="慢启动"></p><p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/%E7%AA%97%E5%8F%A3%E5%B0%BA%E5%AF%B8.png" alt="窗口尺寸"></p><p>我认为是通过第二种方式检测ssthresh等于cwnd的值是将慢启动转变为拥塞避免的</p></li></ol><h2 id="3-Hint-And-Advice"><a href="#3-Hint-And-Advice" class="headerlink" title="3 Hint And Advice"></a>3 Hint And Advice</h2><h3 id="我的错误和卡顿"><a href="#我的错误和卡顿" class="headerlink" title="我的错误和卡顿"></a>我的错误和卡顿</h3><ol><li><p>这是我自己tcp连接的RTT图，可以很清楚的看到十分混乱，因此我通过重新阅读材料才发现这个lab的基本全部都是通过<code>tcp-ethereal-trace-1</code>的抓包完成的。<img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/rtt.png" alt="rtt"></p></li><li><p>对于post_segement这里简要说明下PSH提示携带数据，但是书中只是简答的提到了。</p><p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/image-20220711141747515.png" alt="image-20220711141747515"></p></li><li><p>对于慢启动可以同过窗口和MSS的数量获得</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> network </category>
+          
+          <category> wireshark </category>
+          
+          <category> lab </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> network </tag>
+            
+            <tag> wireshark </tag>
+            
+            <tag> tcp </tag>
+            
+            <tag> lab </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>wireshark_http_lab</title>
       <link href="/2022/07/08/wireshark/wireshark-http-lab/"/>
       <url>/2022/07/08/wireshark/wireshark-http-lab/</url>
@@ -28,9 +63,9 @@
             
             <tag> wireshark </tag>
             
-            <tag> http </tag>
-            
             <tag> lab </tag>
+            
+            <tag> http </tag>
             
         </tags>
       
@@ -245,9 +280,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> lab </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> csapp </tag>
             
@@ -398,9 +433,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> lab </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> csapp </tag>
             
@@ -431,9 +466,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> lab </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> csapp </tag>
             
@@ -464,9 +499,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> lab </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> csapp </tag>
             
@@ -526,9 +561,9 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
             <tag> lab </tag>
+            
+            <tag> 笔记 </tag>
             
             <tag> csapp </tag>
             
