@@ -32,28 +32,22 @@
     var CONFIG = {"hostname":"wangzd0209.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1 introduction 这个lab十分简单，指导书上说小于30分钟就能完成。 请看章节3.3">
+  <meta name="description" content="Introduction 通过UDP协议向服务器发送10个ping包，通过不同的选择，完成返回 通过datetime完成RTT的计算 通过socket.settimeout(1)完成1秒钟后的过时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="wireshark_udp_lab">
-<meta property="og:url" content="http://wangzd0209.com/2022/07/12/wireshark/wireshark-udp-lab/index.html">
+<meta property="og:title" content="lab_UPDPing">
+<meta property="og:url" content="http://wangzd0209.com/2022/07/16/network/socket/lab-UPDPing/index.html">
 <meta property="og:site_name" content="东东园">
-<meta property="og:description" content="1 introduction 这个lab十分简单，指导书上说小于30分钟就能完成。 请看章节3.3">
+<meta property="og:description" content="Introduction 通过UDP协议向服务器发送10个ping包，通过不同的选择，完成返回 通过datetime完成RTT的计算 通过socket.settimeout(1)完成1秒钟后的过时">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/question.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/field.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/length.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/image-20220712090221832.png">
-<meta property="article:published_time" content="2022-07-12T01:16:46.000Z">
-<meta property="article:modified_time" content="2022-07-12T01:21:02.537Z">
+<meta property="article:published_time" content="2022-07-16T06:42:50.000Z">
+<meta property="article:modified_time" content="2022-07-16T06:43:46.801Z">
 <meta property="article:author" content="Wangzd">
 <meta property="article:tag" content="network">
-<meta property="article:tag" content="wireshark">
+<meta property="article:tag" content="socket">
 <meta property="article:tag" content="lab">
-<meta property="article:tag" content="udp">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/question.png">
 
-<link rel="canonical" href="http://wangzd0209.com/2022/07/12/wireshark/wireshark-udp-lab/">
+<link rel="canonical" href="http://wangzd0209.com/2022/07/16/network/socket/lab-UPDPing/">
 
 
 <script id="page-configurations">
@@ -66,7 +60,7 @@
   };
 </script>
 
-  <title>wireshark_udp_lab | 东东园</title>
+  <title>lab_UPDPing | 东东园</title>
   
 
 
@@ -220,7 +214,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wangzd0209.com/2022/07/12/wireshark/wireshark-udp-lab/">
+    <link itemprop="mainEntityOfPage" href="http://wangzd0209.com/2022/07/16/network/socket/lab-UPDPing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -233,7 +227,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          wireshark_udp_lab
+          lab_UPDPing
         </h1>
 
         <div class="post-meta">
@@ -244,7 +238,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-07-12 09:16:46 / 修改时间：09:21:02" itemprop="dateCreated datePublished" datetime="2022-07-12T09:16:46+08:00">2022-07-12</time>
+              <time title="创建时间：2022-07-16 14:42:50 / 修改时间：14:43:46" itemprop="dateCreated datePublished" datetime="2022-07-16T14:42:50+08:00">2022-07-16</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -256,11 +250,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/network/wireshark/" itemprop="url" rel="index"><span itemprop="name">wireshark</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/network/wireshark/lab/" itemprop="url" rel="index"><span itemprop="name">lab</span></a>
+                  <a href="/categories/network/socket/" itemprop="url" rel="index"><span itemprop="name">socket</span></a>
                 </span>
             </span>
 
@@ -275,41 +265,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-introduction"><a href="#1-introduction" class="headerlink" title="1 introduction"></a>1 introduction</h2><ol>
-<li>这个lab十分简单，指导书上说小于30分钟就能完成。</li>
-<li>请看章节3.3</li>
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ol>
+<li>通过UDP协议向服务器发送10个ping包，通过不同的选择，完成返回</li>
+<li>通过datetime完成RTT的计算</li>
+<li>通过socket.settimeout(1)完成1秒钟后的过时</li>
 </ol>
 <span id="more"></span>
 
-<h2 id="2-Question-And-Answer"><a href="#2-Question-And-Answer" class="headerlink" title="2 Question And Answer"></a>2 Question And Answer</h2><h3 id="问题和答案"><a href="#问题和答案" class="headerlink" title="问题和答案"></a>问题和答案</h3><p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/question.png" alt="question"></p>
-<ol>
-<li><p>从跟踪中选择一个UDP数据包。从此数据包中，确定 UDP 标头中有多少字段，并为这些字段命名。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/field.png" alt="field"></p>
-</li>
-<li><p>通过查询Wireshark，确定每个UDP报头字段长度。</p>
-<ul>
-<li>8个字节，由4个两字节的的数据组成</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/length.png" alt="length"></p>
-</li>
-<li><p>长度字段中的值是指的是什么？使用捕获的 UDP 数据包验证您的声明。</p>
-<ul>
-<li>长度是(首部 + 数据），95+8&#x3D;103</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/wangzd02091/blog_images@main/img/image-20220712090221832.png" alt="image-20220712090221832"></p>
-</li>
-<li><p>UDP有效负载中可包含的最大字节数是多少？</p>
-<ul>
-<li>2byte为2^16 &#x3D; 65536，因此有效负载的65536-8 &#x3D; 65528个</li>
-</ul>
-</li>
-<li><p>UDP 的协议号是什么？ 以十六进制和十进制表示法给出答案。</p>
-<p>UDP-&gt;17 0X11</p>
-</li>
-<li><p>观察发送 UDP 数据包后接收响应的 UDP 数据包，这是对发送的 UDP 数据包的回复，请描述两个数据包中端口号之间的关系。(提示：对于响应 UDP 目的地应该为发送 UDP 包的地址。）</p>
-<p>发送端口，是回复的接受端口</p>
-</li>
-</ol>
+<h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><h2 id="ode"><a href="#ode" class="headerlink" title="ode"></a>ode</h2><h3 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># UDPPingerServer.py</span></span><br><span class="line"><span class="comment"># We will need the following module to generate randomized lost packets</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># Create a UDP socket </span></span><br><span class="line"><span class="comment"># Notice the use of SOCK_DGRAM for UDP packets</span></span><br><span class="line">serverSocket = socket(AF_INET, SOCK_DGRAM)</span><br><span class="line"><span class="comment"># Assign IP address and port number to socket</span></span><br><span class="line">serverSocket.bind((<span class="string">&#x27;&#x27;</span>, <span class="number">12000</span>))</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">	<span class="comment"># Generate random number in the range of 0 to 10</span></span><br><span class="line">	rand = random.randint(<span class="number">0</span>, <span class="number">10</span>) </span><br><span class="line">	<span class="comment"># Receive the client packet along with the address it is coming from </span></span><br><span class="line">	message, address = serverSocket.recvfrom(<span class="number">1024</span>)</span><br><span class="line">	<span class="comment"># Capitalize the message from the client</span></span><br><span class="line">	message = message.upper()</span><br><span class="line">	<span class="comment"># If rand is less is than 4, we consider the packet lost and do not respond</span></span><br><span class="line">	<span class="keyword">if</span> rand &lt; <span class="number">4</span>:</span><br><span class="line">		<span class="keyword">continue</span></span><br><span class="line">	<span class="comment"># Otherwise, the server responds </span></span><br><span class="line">	serverSocket.sendto(message, address)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">serverName = <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">serverPort = <span class="number">8088</span></span><br><span class="line"></span><br><span class="line">i = <span class="number">10</span></span><br><span class="line"><span class="keyword">while</span> i &gt; <span class="number">0</span>:</span><br><span class="line">    clientSocket = socket(AF_INET, SOCK_DGRAM)</span><br><span class="line">    clientSocket.settimeout(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        begin_time = datetime.datetime.now()</span><br><span class="line">        clientSocket.sendto(<span class="string">&quot;ping&quot;</span>.encode(), (serverName, serverPort))</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            data, addr = clientSocket.recvfrom(<span class="number">1024</span>)</span><br><span class="line">            <span class="keyword">if</span> data.decode() == <span class="string">&#x27;PING&#x27;</span>:</span><br><span class="line">                end_time = datetime.datetime.now()</span><br><span class="line">                i = i - <span class="number">1</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="built_in">print</span>(data)</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">except</span> timeout:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Ping timeout&quot;</span>)</span><br><span class="line">        i = i - <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        rtt = (end_time - begin_time).microseconds / <span class="number">1000.0</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;ping rtt &quot;</span>, rtt)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
     </div>
 	
@@ -364,7 +330,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wangzd0209.com/2022/07/12/wireshark/wireshark-udp-lab/" title="wireshark_udp_lab">http://wangzd0209.com/2022/07/12/wireshark/wireshark-udp-lab/</a>
+    <a href="http://wangzd0209.com/2022/07/16/network/socket/lab-UPDPing/" title="lab_UPDPing">http://wangzd0209.com/2022/07/16/network/socket/lab-UPDPing/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -376,9 +342,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/network/" rel="tag"># network</a>
-              <a href="/tags/wireshark/" rel="tag"># wireshark</a>
+              <a href="/tags/socket/" rel="tag"># socket</a>
               <a href="/tags/lab/" rel="tag"># lab</a>
-              <a href="/tags/udp/" rel="tag"># udp</a>
           </div>
 
         
@@ -387,10 +352,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/07/11/wireshark/wireshark-tcp-lab/" rel="prev" title="wireshark-tcp-lab">
-      <i class="fa fa-chevron-left"></i> wireshark-tcp-lab
+    <a href="/2022/07/16/network/socket/lab-WebServer/" rel="prev" title="lab_WebServer">
+      <i class="fa fa-chevron-left"></i> lab_WebServer
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/07/16/network/socket/lab-SMTP/" rel="next" title="lab_SMTP">
+      lab_SMTP <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -449,7 +417,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-introduction"><span class="nav-number">1.</span> <span class="nav-text">1 introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Question-And-Answer"><span class="nav-number">2.</span> <span class="nav-text">2 Question And Answer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%92%8C%E7%AD%94%E6%A1%88"><span class="nav-number">2.1.</span> <span class="nav-text">问题和答案</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C"><span class="nav-number">2.</span> <span class="nav-text">C</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ode"><span class="nav-number">3.</span> <span class="nav-text">ode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Server"><span class="nav-number">3.1.</span> <span class="nav-text">Server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Client"><span class="nav-number">3.2.</span> <span class="nav-text">Client</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -465,7 +433,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -478,7 +446,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
