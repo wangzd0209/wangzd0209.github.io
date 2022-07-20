@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>lab_ProxyWebServer</title>
+      <link href="/2022/07/20/network/socket/lab-ProxyWebServer/"/>
+      <url>/2022/07/20/network/socket/lab-ProxyWebServer/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ol><li>完成一个代理的服务器转发请求</li><li><a href="https://gitcode.net/mirrors/moranzcw/Computer-Networking-A-Top-Down-Approach-NOTES?from_codechina=yes">lab的要求以及部分代码</a>-这个代码是错误的，不但修改了框架，还不正确，至少在python3中不对</li><li>符合python3的一个GitHub仓库，这里面的代码有比较高完成。<a href="https://github.com/jzplp/Computer-Network-A-Top-Down-Approach-Answer/blob/master/Chapter-2/Socket-Programming-Assignment-4/ProxyServer.py">代码库</a></li><li>强烈推荐有问题的先看最下面的Problem</li></ol><span id="more"></span><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="comment"># Create a server socket, bind it to a port and start listening</span></span><br><span class="line">tcpSerSock = socket(AF_INET, SOCK_STREAM)</span><br><span class="line">tcpSerSock.bind((<span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="number">8084</span>))</span><br><span class="line">tcpSerSock.listen(<span class="number">5</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line"><span class="comment"># Strat receiving data from the client</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Ready to serve...&#x27;</span>)</span><br><span class="line">tcpCliSock, addr = tcpSerSock.accept()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Received a connection from:&#x27;</span>, addr)</span><br><span class="line">message = tcpCliSock.recv(<span class="number">1024</span>).decode()</span><br><span class="line"><span class="built_in">print</span>(message)</span><br><span class="line"><span class="comment"># Extract the filename from the given message</span></span><br><span class="line"><span class="built_in">print</span>(message.split()[<span class="number">1</span>])</span><br><span class="line">filename = message.split()[<span class="number">1</span>].partition(<span class="string">&quot;/&quot;</span>)[<span class="number">2</span>]</span><br><span class="line"><span class="built_in">print</span>(filename)</span><br><span class="line"><span class="comment">#cacheFileName = filename.replace(&#x27;/&#x27;, &#x27;-&#x27;)</span></span><br><span class="line">fileExist = <span class="string">&quot;false&quot;</span></span><br><span class="line">filetouse = <span class="string">&quot;/&quot;</span> + filename</span><br><span class="line"><span class="built_in">print</span>(filetouse)</span><br><span class="line"><span class="keyword">try</span>:<span class="comment"># Check wether the file exist in the cache</span></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;WEB&quot;</span> + filetouse[<span class="number">1</span>:], <span class="string">&quot;rb&quot;</span>)</span><br><span class="line">outputdata = f.read()</span><br><span class="line">f.close()</span><br><span class="line">fileExist = <span class="string">&quot;true&quot;</span></span><br><span class="line"><span class="comment"># ProxyServer finds a cache hit and generates a response message</span></span><br><span class="line">tcpCliSock.send(<span class="string">&quot;HTTP/1.0 200 OK\r\n&quot;</span>.encode())</span><br><span class="line">tcpCliSock.send(<span class="string">&quot;Content-Type:text/html\r\n\r\n&quot;</span>.encode())</span><br><span class="line">tcpCliSock.send(outputdata)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;Read from cache&#x27;</span>)</span><br><span class="line"><span class="comment"># Error handling for file not found in cache</span></span><br><span class="line"><span class="keyword">except</span> IOError:</span><br><span class="line"><span class="keyword">if</span> fileExist == <span class="string">&quot;false&quot;</span>:</span><br><span class="line"><span class="comment"># Create a socket on the proxyserver</span></span><br><span class="line">c = socket(AF_INET, SOCK_STREAM)</span><br><span class="line">hostn = filename.replace(<span class="string">&quot;www.&quot;</span>,<span class="string">&quot;&quot;</span>,<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(hostn)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">serverName = hostn.partition(<span class="string">&#x27;/&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="comment"># Connect to the socket to port 80</span></span><br><span class="line">c.connect((serverName, <span class="number">80</span>))</span><br><span class="line">askFile = <span class="string">&#x27;&#x27;</span>.join(filename.partition(<span class="string">&#x27;/&#x27;</span>)[<span class="number">1</span>:])</span><br><span class="line"><span class="comment"># Create a temporary file on this socket and ask port 80 for the file requested by the client</span></span><br><span class="line"><span class="comment">#fileobj = c.makefile(&#x27;rwb&#x27;, 0)</span></span><br><span class="line"><span class="comment">#fileobj.write(&quot;GET &quot;.encode() + askFile.encode() + &quot; HTTP/1.0\r\nHost: &quot;.encode() + serverName.encode() + &quot;\r\n\r\n&quot;.encode())</span></span><br><span class="line"><span class="comment">#c.send((&quot;GET &quot;+&quot;http://&quot; + filename + &quot; HTTP/1.1\r\n&quot;).encode())</span></span><br><span class="line"><span class="comment">#c.send((&quot;Host: localhost:8084\r\n&quot;).encode())</span></span><br><span class="line"><span class="comment">#c.send((&quot;Connection: keep-alive\r\n&quot;).encode())</span></span><br><span class="line">c.send(<span class="string">&quot;GET &quot;</span>.encode() + askFile.encode() + <span class="string">&quot; HTTP/1.0\r\nHost: &quot;</span>.encode() + serverName.encode() + <span class="string">&quot;\r\n\r\n&quot;</span>.encode())</span><br><span class="line">serverResponse = c.recv(<span class="number">1024</span>)</span><br><span class="line"><span class="comment"># Read the response into buffer</span></span><br><span class="line"><span class="comment">#serverResponse = fileobj.read()</span></span><br><span class="line"><span class="comment">#buffer = c.recv(4096)</span></span><br><span class="line"><span class="comment"># Create a new file in the cache for the requested file.</span></span><br><span class="line"><span class="comment"># Also send the response in the buffer to client socket and the corresponding file in the cache</span></span><br><span class="line">filename = <span class="string">&quot;WEB/&quot;</span> + filename</span><br><span class="line">filesplit = filename.split(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(filesplit) - <span class="number">1</span>):</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(<span class="string">&quot;/&quot;</span>.join(filesplit[<span class="number">0</span>:i + <span class="number">1</span>])):</span><br><span class="line">os.makedirs(<span class="string">&quot;/&quot;</span>.join(filesplit[<span class="number">0</span>:i + <span class="number">1</span>]))</span><br><span class="line">tmpFile = <span class="built_in">open</span>(filename,<span class="string">&quot;wb&quot;</span>)</span><br><span class="line">serverResponse = serverResponse.split(<span class="string">b&#x27;\r\n\r\n&#x27;</span>)[<span class="number">1</span>]</span><br><span class="line">tmpFile.write(serverResponse)</span><br><span class="line">tmpFile.close()</span><br><span class="line">tcpCliSock.send(<span class="string">&quot;HTTP/1.1 200 OK\r\n&quot;</span>.encode())</span><br><span class="line">tcpCliSock.send(<span class="string">&quot;Content-Type:text/html\r\n\r\n&quot;</span>.encode())</span><br><span class="line">tcpCliSock.send(serverResponse)</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Illegal request&quot;</span>)</span><br><span class="line"><span class="keyword">break</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"><span class="comment"># HTTP response message for file not found</span></span><br><span class="line">tcpCliSock.send(<span class="string">&quot;HTTP/1.0 404 Not Found\r\n&quot;</span>.encode())</span><br><span class="line">tcpCliSock.send(<span class="string">&quot;\r\n&quot;</span>.encode())</span><br><span class="line">tcpCliSock.send(<span class="string">&quot;404 Not Found Cant Find such file &quot;</span> + filename + <span class="string">&quot;\r\n&quot;</span>.encode())</span><br><span class="line"><span class="comment"># Close the client and the server sockets</span></span><br><span class="line">tcpCliSock.close()</span><br><span class="line">tcpSerSock.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><ol><li><blockquote><p>Create a temporary file on this socket and ask port 80 for the file requested by the client</p></blockquote><p>这里有两种写法，一种是根据框架使用</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fileobj.write(<span class="string">&quot;GET &quot;</span>.encode() + askFile.encode() + <span class="string">&quot; HTTP/1.0\r\nHost: &quot;</span>.encode() + serverName.encode() + <span class="string">&quot;\r\n\r\n&quot;</span>.encode())</span><br><span class="line">serverResponse = fileobj.read()</span><br></pre></td></tr></table></figure><p>另外一种是</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c.send(<span class="string">&quot;GET &quot;</span>.encode() + askFile.encode() + <span class="string">&quot; HTTP/1.0\r\nHost: &quot;</span>.encode() + serverName.encode() + <span class="string">&quot;\r\n\r\n&quot;</span>.encode())</span><br><span class="line">serverResponse = c.recv(<span class="number">1024</span>)</span><br></pre></td></tr></table></figure><p>这个问题在很多网上的解答是直接通过</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.send(message.encode())</span><br></pre></td></tr></table></figure><p>但是我发现这样实际请求的的不是正确的，例如我要请求的是<code>gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file1.html</code>,但是这种写法请求的是<code>gaia.cs.umass.edu/gaia.cs.umass.edu/wireshark-labs/HTTP-wireshark-file1.html</code>会显示没有找到对应的文件，因此需要自己写一个http请求发送给服务器。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> network </category>
+          
+          <category> socket </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> lab </tag>
+            
+            <tag> network </tag>
+            
+            <tag> socket </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>lab_Prepatation</title>
       <link href="/2022/07/16/network/socket/lab-Prepatation/"/>
       <url>/2022/07/16/network/socket/lab-Prepatation/</url>
@@ -22,11 +53,11 @@
       
         <tags>
             
+            <tag> lab </tag>
+            
             <tag> network </tag>
             
             <tag> socket </tag>
-            
-            <tag> lab </tag>
             
         </tags>
       
@@ -53,11 +84,11 @@
       
         <tags>
             
+            <tag> lab </tag>
+            
             <tag> network </tag>
             
             <tag> socket </tag>
-            
-            <tag> lab </tag>
             
         </tags>
       
@@ -84,11 +115,11 @@
       
         <tags>
             
+            <tag> lab </tag>
+            
             <tag> network </tag>
             
             <tag> socket </tag>
-            
-            <tag> lab </tag>
             
         </tags>
       
@@ -115,11 +146,11 @@
       
         <tags>
             
+            <tag> lab </tag>
+            
             <tag> network </tag>
             
             <tag> socket </tag>
-            
-            <tag> lab </tag>
             
         </tags>
       
@@ -146,9 +177,9 @@
       
         <tags>
             
-            <tag> network </tag>
-            
             <tag> lab </tag>
+            
+            <tag> network </tag>
             
             <tag> wireshark </tag>
             
@@ -179,9 +210,9 @@
       
         <tags>
             
-            <tag> network </tag>
-            
             <tag> lab </tag>
+            
+            <tag> network </tag>
             
             <tag> wireshark </tag>
             
@@ -212,9 +243,9 @@
       
         <tags>
             
-            <tag> network </tag>
-            
             <tag> lab </tag>
+            
+            <tag> network </tag>
             
             <tag> wireshark </tag>
             
