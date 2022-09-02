@@ -32,22 +32,22 @@
     var CONFIG = {"hostname":"wangzd0209.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1 HTTPS概述1.1 HTTPS介绍  超文本传输安全协议HTTPS（Hypertext Transfer Protocol Secure）是超文本传输协议和SSL&#x2F;TLS的组合，用以提供加密通讯及对网络服务器身份的鉴定。 1.2 SSL介绍  SSL（Secure Socket Layer）安全套接字层是一种数字证书，它使用ssl协议在浏览器和web server之间建立一条安全通">
+  <meta name="description" content="这是一个C语言的项目">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nginx的HTTPS">
-<meta property="og:url" content="http://wangzd0209.com/2022/06/22/nginx/Nginx%E7%9A%84HTTPS/index.html">
+<meta property="og:title" content="Althttpd-一个简单的http_server网站">
+<meta property="og:url" content="http://wangzd0209.com/2022/09/02/interesting_program/Althttpd-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84http-server%E7%BD%91%E7%AB%99/index.html">
 <meta property="og:site_name" content="东东园">
-<meta property="og:description" content="1 HTTPS概述1.1 HTTPS介绍  超文本传输安全协议HTTPS（Hypertext Transfer Protocol Secure）是超文本传输协议和SSL&#x2F;TLS的组合，用以提供加密通讯及对网络服务器身份的鉴定。 1.2 SSL介绍  SSL（Secure Socket Layer）安全套接字层是一种数字证书，它使用ssl协议在浏览器和web server之间建立一条安全通">
+<meta property="og:description" content="这是一个C语言的项目">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-22T14:14:14.000Z">
-<meta property="article:modified_time" content="2022-07-08T08:41:19.256Z">
+<meta property="article:published_time" content="2022-09-02T14:10:06.000Z">
+<meta property="article:modified_time" content="2022-09-02T14:47:38.356Z">
 <meta property="article:author" content="Wangzd">
-<meta property="article:tag" content="开发日记">
-<meta property="article:tag" content="笔记">
-<meta property="article:tag" content="Nginx">
+<meta property="article:tag" content="感兴趣的项目">
+<meta property="article:tag" content="Alhttpd">
+<meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://wangzd0209.com/2022/06/22/nginx/Nginx%E7%9A%84HTTPS/">
+<link rel="canonical" href="http://wangzd0209.com/2022/09/02/interesting_program/Althttpd-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84http-server%E7%BD%91%E7%AB%99/">
 
 
 <script id="page-configurations">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title>Nginx的HTTPS | 东东园</title>
+  <title>Althttpd-一个简单的http_server网站 | 东东园</title>
   
 
 
@@ -214,7 +214,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://wangzd0209.com/2022/06/22/nginx/Nginx%E7%9A%84HTTPS/">
+    <link itemprop="mainEntityOfPage" href="http://wangzd0209.com/2022/09/02/interesting_program/Althttpd-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84http-server%E7%BD%91%E7%AB%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -227,7 +227,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Nginx的HTTPS
+          Althttpd-一个简单的http_server网站
         </h1>
 
         <div class="post-meta">
@@ -236,27 +236,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-06-22 22:14:14" itemprop="dateCreated datePublished" datetime="2022-06-22T22:14:14+08:00">2022-06-22</time>
+              <time title="创建时间：2022-09-02 22:10:06 / 修改时间：22:47:38" itemprop="dateCreated datePublished" datetime="2022-09-02T22:10:06+08:00">2022-09-02</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-08 16:41:19" itemprop="dateModified" datetime="2022-07-08T16:41:19+08:00">2022-07-08</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">开发日记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0/Nginx/" itemprop="url" rel="index"><span itemprop="name">Nginx</span></a>
+                  <a href="/categories/%E6%84%9F%E5%85%B4%E8%B6%A3%E7%9A%84%E9%A1%B9%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">感兴趣的项目</span></a>
                 </span>
             </span>
 
@@ -271,26 +261,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-HTTPS概述"><a href="#1-HTTPS概述" class="headerlink" title="1 HTTPS概述"></a>1 HTTPS概述</h2><h3 id="1-1-HTTPS介绍"><a href="#1-1-HTTPS介绍" class="headerlink" title="1.1 HTTPS介绍"></a>1.1 HTTPS介绍</h3><p>  超文本传输安全协议HTTPS（Hypertext Transfer Protocol Secure）是超文本传输协议和SSL&#x2F;TLS的组合，用以提供加密通讯及对网络服务器身份的鉴定。</p>
-<h3 id="1-2-SSL介绍"><a href="#1-2-SSL介绍" class="headerlink" title="1.2 SSL介绍"></a>1.2 SSL介绍</h3><p>  SSL（Secure Socket Layer）安全套接字层是一种数字证书，它使用ssl协议在浏览器和web server之间建立一条安全通道，数据信息在client与server之间的安全传输。SSL使用证书来创建安全连接，通常有两种验证模式：</p>
-<ul>
-<li>仅客户端验证服务器的证书，客户端自己不提供证书；</li>
-<li>客户端和服务器都互相验证对方的证书。</li>
-</ul>
+        <p>这是一个C语言的项目</p>
 <span id="more"></span>
 
-<h2 id="2-签名证书"><a href="#2-签名证书" class="headerlink" title="2 签名证书"></a>2 签名证书</h2><p>签名可以分为自签名证书，基于IP&#x2F;域名的证书，其中对于自签名的只有在站点内部，浏览器不承认，只有经过类似ca的授权crt证书才能在浏览器上没有小红点。</p>
-<h3 id="2-1-自签名证书"><a href="#2-1-自签名证书" class="headerlink" title="2.1 自签名证书"></a>2.1 自签名证书</h3><p>基于openSSL进行，由于未涉及到因此请自行搜索</p>
-<h3 id="2-2-免费证书申请"><a href="#2-2-免费证书申请" class="headerlink" title="2.2 免费证书申请"></a>2.2 免费证书申请</h3><ol>
-<li>通过阿里云进行申请，自己搜索博客</li>
-<li>通过IP进行 <a target="_blank" rel="noopener" href="https://www.cheshirex.com/6789.html">教程</a>（注意：由于免费申请的IP证书过少，因此只找到一个）</li>
-</ol>
-<h2 id="3-Nginx-配置"><a href="#3-Nginx-配置" class="headerlink" title="3 Nginx 配置"></a>3 Nginx 配置</h2><h3 id="3-1-对于80端口的配置"><a href="#3-1-对于80端口的配置" class="headerlink" title="3.1 对于80端口的配置"></a>3.1 对于80端口的配置</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">		<span class="attribute">server_name</span>  <span class="number">47.101.157.10</span>;</span><br><span class="line">				</span><br><span class="line">		<span class="attribute">charset</span> utf-<span class="number">8</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">#location /api/ &#123;</span></span><br><span class="line">			<span class="comment">#proxy_pass   http://localhost:8084/;</span></span><br><span class="line">            <span class="comment">#proxy_redirect default;</span></span><br><span class="line">		<span class="comment">#&#125;</span></span><br><span class="line">		//重写http请求转换为https请求</span><br><span class="line">		<span class="attribute">location</span> /api/ &#123;</span><br><span class="line">			<span class="attribute">return</span>	<span class="number">301</span> https://$server_name$request_uri;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-2-对于443端口的配置"><a href="#3-2-对于443端口的配置" class="headerlink" title="3.2 对于443端口的配置"></a>3.2 对于443端口的配置</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">443</span> ssl;</span><br><span class="line">        <span class="attribute">server_name</span>  <span class="number">47.101.157.10</span>;</span><br><span class="line">		</span><br><span class="line">		//自己的key和crt/pem文件</span><br><span class="line">        <span class="attribute">ssl_certificate</span>      /usr/local/nginx/ssl/certificate.crt;</span><br><span class="line">        <span class="attribute">ssl_certificate_key</span>  /usr/local/nginx/ssl/private.key;</span><br><span class="line">		</span><br><span class="line">		<span class="attribute">ssl_session_cache</span>   shared:SSL:<span class="number">1m</span>;</span><br><span class="line">		<span class="attribute">ssl_session_timeout</span> <span class="number">2m</span>; </span><br><span class="line">		</span><br><span class="line">    	//通过端口转发到java处理</span><br><span class="line">        <span class="attribute">location</span> /api/ &#123;</span><br><span class="line">            <span class="attribute">proxy_pass</span>   http://localhost:8084/;</span><br><span class="line">            <span class="attribute">proxy_redirect</span> default;</span><br><span class="line">        &#125;</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-过程中遇到的问题"><a href="#4-过程中遇到的问题" class="headerlink" title="4 过程中遇到的问题"></a>4 过程中遇到的问题</h2><h3 id="4-1-对于IP的证书申请"><a href="#4-1-对于IP的证书申请" class="headerlink" title="4.1 对于IP的证书申请"></a>4.1 对于IP的证书申请</h3><p>对于上述IP申请，中会有两个.crt文件，只需要将cundle.crt文件置于crexxxx文件之下即可。也可以通过linux的<code>cat crexxx.crt cundle.crt &gt; new.crt</code>即可</p>
-<h3 id="4-2-对于服务器防火墙设置"><a href="#4-2-对于服务器防火墙设置" class="headerlink" title="4.2 对于服务器防火墙设置"></a>4.2 对于服务器防火墙设置</h3><p>一定要注意开放443，不然会一直拒绝访问，即使你已经设置成功了。</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>​    这是一个很简单的C语言的项目，它的本质就是一个简单的WebServer，主要函数只有一个C文件，同时内部主要由<code>main</code>,<code>http_server</code>,<code>ProcessOnRequest</code>三个最主要的函数组成，其配置可以仅仅使用shell命令行完成。</p>
+<p>​    我认为这是一个易于理解的NET项目,最少能对network有一些简单的理解。</p>
+<h2 id="Resource"><a href="#Resource" class="headerlink" title="Resource"></a>Resource</h2><ul>
+<li><p><a href="">我的博客</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/jesrui/althttpd">项目github</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/wangzd0209/Alhttpd_analysis">我的源码解析后的github</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://sqlite.org/althttpd/file?name=althttpd.md&ci=tip">官网网址</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1FT411c7N8/">我录制的视频</a></p>
+<p>有两个分别分析了<code>main</code>和<code>ProcessOnRequest</code>函数</p>
+</li>
+</ul>
 
     </div>
 	
@@ -345,7 +333,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://wangzd0209.com/2022/06/22/nginx/Nginx%E7%9A%84HTTPS/" title="Nginx的HTTPS">http://wangzd0209.com/2022/06/22/nginx/Nginx的HTTPS/</a>
+    <a href="http://wangzd0209.com/2022/09/02/interesting_program/Althttpd-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84http-server%E7%BD%91%E7%AB%99/" title="Althttpd-一个简单的http_server网站">http://wangzd0209.com/2022/09/02/interesting_program/Althttpd-一个简单的http-server网站/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -356,9 +344,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%BC%80%E5%8F%91%E6%97%A5%E8%AE%B0/" rel="tag"># 开发日记</a>
-              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
-              <a href="/tags/Nginx/" rel="tag"># Nginx</a>
+              <a href="/tags/%E6%84%9F%E5%85%B4%E8%B6%A3%E7%9A%84%E9%A1%B9%E7%9B%AE/" rel="tag"># 感兴趣的项目</a>
+              <a href="/tags/Alhttpd/" rel="tag"># Alhttpd</a>
+              <a href="/tags/C/" rel="tag"># C</a>
           </div>
 
         
@@ -367,13 +355,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/06/22/nginx/Nginx%E7%9A%84location%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/" rel="prev" title="Nginx的location语法规范">
-      <i class="fa fa-chevron-left"></i> Nginx的location语法规范
+    <a href="/2022/07/20/network/socket/lab-ProxyWebServer/" rel="prev" title="lab_ProxyWebServer">
+      <i class="fa fa-chevron-left"></i> lab_ProxyWebServer
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/06/22/nginx/Nginx%E7%9A%84%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE/" rel="next" title="Nginx的跨域配置">
-      Nginx的跨域配置 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -432,7 +417,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-HTTPS%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">1 HTTPS概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-HTTPS%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 HTTPS介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-SSL%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 SSL介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6"><span class="nav-number">2.</span> <span class="nav-text">2 签名证书</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 自签名证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6%E7%94%B3%E8%AF%B7"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 免费证书申请</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Nginx-%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">3 Nginx 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E5%AF%B9%E4%BA%8E80%E7%AB%AF%E5%8F%A3%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 对于80端口的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E5%AF%B9%E4%BA%8E443%E7%AB%AF%E5%8F%A3%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 对于443端口的配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">4 过程中遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E5%AF%B9%E4%BA%8EIP%E7%9A%84%E8%AF%81%E4%B9%A6%E7%94%B3%E8%AF%B7"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 对于IP的证书申请</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E5%AF%B9%E4%BA%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 对于服务器防火墙设置</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Resource"><span class="nav-number">2.</span> <span class="nav-text">Resource</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -448,20 +433,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
