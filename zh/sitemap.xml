@@ -2,26 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/zh/posts/tech/</loc>
+    <loc>https://www.wangzd0209.com/zh/posts/tech/</loc>
   </url><url>
-    <loc>http://localhost:1313/zh/posts/read/</loc>
+    <loc>https://www.wangzd0209.com/zh/posts/read/</loc>
   </url><url>
-    <loc>http://localhost:1313/zh/posts/</loc>
+    <loc>https://www.wangzd0209.com/zh/posts/</loc>
   </url><url>
-    <loc>http://localhost:1313/zh/categories/</loc>
+    <loc>https://www.wangzd0209.com/zh/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/zh/series/</loc>
+    <loc>https://www.wangzd0209.com/zh/series/</loc>
   </url><url>
-    <loc>http://localhost:1313/zh/tags/</loc>
+    <loc>https://www.wangzd0209.com/zh/tags/</loc>
   </url><url>
-    <loc>http://localhost:1313/zh/</loc>
+    <loc>https://www.wangzd0209.com/zh/</loc>
   </url><url>
-    <loc>http://localhost:1313/zh/posts/life/</loc>
+    <loc>https://www.wangzd0209.com/zh/posts/life/</loc>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://www.wangzd0209.com/about/</loc>
   </url><url>
-    <loc>http://localhost:1313/archives/</loc>
+    <loc>https://www.wangzd0209.com/archives/</loc>
   </url><url>
-    <loc>http://localhost:1313/search/</loc>
+    <loc>https://www.wangzd0209.com/search/</loc>
   </url>
 </urlset>
