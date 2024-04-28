@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://www.wangzd0209.com/sitemap.xml
