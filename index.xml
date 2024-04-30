@@ -2,39 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Wangzd&#39;s Blog</title>
-    <link>http://localhost:1313/</link>
+    <link>https://www.wangzd0209.com/</link>
     <description>Recent content on Wangzd&#39;s Blog</description>
     <generator>Hugo -- 0.125.4</generator>
     <language>zh</language>
     <copyright>Wangzd&amp;rsquo;s Blog</copyright>
-    <lastBuildDate>Mon, 29 Apr 2024 14:11:35 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Lab</title>
-      <link>http://localhost:1313/posts/tech/attack-lab/</link>
-      <pubDate>Mon, 29 Apr 2024 14:11:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/tech/attack-lab/</guid>
-      <description>attack-lab 发表于 2022-02-09 更新于 2022-06-22 分类于 csapp ， lab ， 笔记 csapp第三个实验 预备说明 对于attack-lab，我认为很重点的就是一定要看操作流程 ，这里大概说明一下，操作流程里主要讲了流程，原理以及一些</description>
-    </item>
-    <item>
-      <title>Lab</title>
-      <link>http://localhost:1313/posts/tech/lab/</link>
-      <pubDate>Mon, 29 Apr 2024 14:11:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/tech/lab/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>🏖 生活</title>
-      <link>http://localhost:1313/posts/life/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/life/</guid>
-      <description></description>
-    </item>
+    <atom:link href="https://www.wangzd0209.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://www.wangzd0209.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>https://www.wangzd0209.com/about/</guid>
       <description>about</description>
     </item>
   </channel>
